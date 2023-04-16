@@ -3,27 +3,35 @@ import ReactDOM from 'react-dom/client'
 import Home from './component/Home'
 import Explore from './component/Explore'
 import PopularMovies from './component/PopularMovies'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider , Outlet} from "react-router-dom";
+import Navbar from './component/Navbar'
 
 const router = createBrowserRouter([
   {
-  path: "/",  element: <>
-  <Home/>
+  path: "/", 
+   element: <>
+  <Navbar/>
+  
+  <Outlet/>
   </>,
-  errorElement: <p>Page Not Found</p>
-  } , 
-  {
-    path: "/explore",  element: <>
-    <Explore/>
-    </>,
-    errorElement: <p>Page Not Found</p>
+  errorElement: <p>Page Not Found</p> , 
+  children: [
+    {
+    path: "/",  element: <Home />,
     } , 
     {
-      path: "/popular-movies",  element: <>
-      <PopularMovies/>
-      </>,
-      errorElement: <p>Page Not Found</p>
-      }
+      path: "/explore",
+      element: <Explore/>,
+      } , 
+      {
+        path: "/popular-movies",
+        element: <PopularMovies/>,
+        }
+      
+    ],
+    
+  } , 
+  
   ]);
   
 
