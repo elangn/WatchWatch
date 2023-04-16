@@ -1,0 +1,68 @@
+.navbar { 
+    color: white;
+    z-index: 1;
+}
+
+.navbar-brand img {
+    width: 100px;
+}
+
+.navbar-brand span{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(222, 106, 4);
+}
+
+
+.navbar-collapse ul li {
+    margin: 0 10px;
+}
+
+.navbar-collapse button {
+    margin: 0 10px;
+}
+
+.navbar-collapse ul li a { 
+    color: rgb(154, 153, 153);
+    transition: 0.5s;
+    text-decoration: none;
+    
+}
+
+.navbar-collapse ul li a:hover { 
+    color: rgb(255, 255, 255);
+}
+
+.navbar .tex svg {
+    color: white;
+   font-size: 20px;
+}
+
+.navbar button {
+    border-radius: 30px;
+    border: none;
+}
+
+.navbar button:hover {
+    opacity: 0.5; 
+}
+
+.navbar button svg{
+    color: black;
+}
+
+.navbar button span{
+    border: none;
+    font-weight: bold;
+    color: black;
+}
+
+.navbar button:nth-child(2)  { 
+    background-color: transparent;
+}
+
+
+
+.navbar button i { 
+    color: grey;
+}
