@@ -1,0 +1,316 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.body { 
+    background-color: black;
+}
+
+.dark-mode {
+    background-color: white
+}
+
+
+/* navbar */
+.navbar { 
+    color: white;
+    z-index: 99;
+    box-shadow: 5px;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0));
+    margin-bottom: 20px;
+}
+
+.navbar .tex svg {
+    color: white;
+   font-size: 20px;
+}
+
+.navbar-brand img {
+    width: 100px;
+}
+
+.navbar-brand span{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(222, 106, 4);
+}
+
+.navbar-collapse ul li {
+    margin: 0 10px;
+}
+
+.navbar-collapse ul li a { 
+    color: white;
+    transition: 0.5s;
+    
+}
+
+.navbar-collapse ul li a:hover { 
+    color: #ffc107;
+    
+    
+}
+
+.navbar button span{
+    border: none;
+    font-weight: bold;
+}
+
+
+
+
+.navbar button {
+    border-radius: 30px;
+    border: none;
+}
+
+.navbar button:hover {
+    opacity: 0.5; 
+}
+
+.navbar button svg{
+    color: black;
+}
+
+.navbar button span{
+    border: none;
+    font-weight: bold;
+    color: black;
+}
+
+.navbar .dark { 
+    background-color: transparent;
+}
+
+.navbar .dark svg{ 
+    color: white;
+}
+
+
+
+/* modal signin */
+
+.modal .modal-dialog {
+    width: 350px;
+}
+
+.modal .logo {
+    width: 200px;
+    
+}
+
+.modal .modal-content {     
+    padding: 20px;
+    background-image: url(img/charlesdeluvio-jtmwD4i4v1U-unsplash.jpg);
+    background-color: #121926;
+}
+
+.modal .modal-header {
+    border-bottom: none;
+}
+
+.modal .modal-header h1{ 
+    font-weight: bold;
+    color: white
+}
+
+.modal .modal-header p{ 
+    color: grey;
+    font-size: 12px;
+}
+
+.modal .modal-header label{ 
+    color: grey;
+    font-size: 14px;
+}
+
+.modal .email{ 
+    border-radius: 5px;
+    width: 250px;
+    font-size: 12px;
+    
+}
+
+.modal .passcode{ 
+    border-radius: 5px;
+    width: 250px;
+    font-size: 12px;
+    
+}
+
+.modal label img {
+    width: 15px;
+}
+
+.modal .btn { 
+    width: 250px;
+    /* background-color: rgb(163, 34, 34); */
+    background-color: #ffc107;
+    color: black
+}
+
+.modal .btn:hover { 
+    
+    background-color: rgb(219, 190, 0);
+}
+
+.modal .btn img{ 
+    width: 15px;
+}
+
+/* Filter */
+
+.filter { 
+    
+}
+
+.filter p { 
+    color: grey;
+}
+
+.filter a {
+    color: grey;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.filter a:hover {
+    color: #ffc107
+    
+}
+
+/* breadcrumb */
+
+.breadcrumb { 
+    
+}
+
+/* popular movies */
+#popular-movies {
+    margin-bottom: 70px;
+}
+#popular-movies img{
+    transition: 0.5s;
+    
+}
+
+#popular-movies img:hover{
+    /* opacity: 0.5; */
+    transform: translateY(1.5);
+    
+}
+
+.judul {
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 3px solid yellow;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* carousel  */
+
+
+.caousel-header { 
+    margin-bottom: 70px;
+    margin-top: -65px;
+}
+
+.carousel 
+.carousel-item img {
+    width: 100%;
+}
+
+.carousel 
+.carousel-item img:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.carousel .carousel-control-prev  { 
+    background-color: black;
+    width: 50px;
+}
+
+.carousel .carousel-control-next {
+    background-color: black;
+    width: 50px;
+    color: yellow;
+}
+
+/* rated movies */
+#rated-movies {
+    margin-bottom: 70px;
+}
+
+/* popular series */
+#popular-series { 
+    margin-bottom: 70px;
+}
+
+/* rated series */
+#rated-series{
+    margin-bottom: 100px;
+}
+
+
+/* footer */
+
+
+.footer button { 
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.footer span  { 
+    color: white;
+    margin: 0 20px;
+    margin-bottom: 250x;
+}
+
+.footer  { 
+    margin-top: 250x;
+}
+
+@media (max-width : 992px){
+    .carousel-item img {
+        margin-bottom: 50px;
+        
+    }
+
+    .carousel .carousel-control-prev  { 
+        background-color: rgba(0, 0, 0, 0);
+        width: 50px;
+    }
+    
+    .carousel .carousel-control-next {
+        background-color: rgba(0, 0, 0, 0);
+        width: 50px;
+        color: yellow;
+    }
+
+    
+}
+
+
+@media (max-width : 576px){
+    
+    .carousel-item  {
+        text-align: center;
+        
+    }
+    
+    .carousel-item img {
+        margin-bottom: 50px;
+        
+    }
+
+    .modal .modal-dialog { 
+        margin: 30px auto;
+    }
+    
+   
+   
+}

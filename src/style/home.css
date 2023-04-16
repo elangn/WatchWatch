@@ -1,0 +1,521 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.body { 
+    background-color: black;
+}
+
+.dark-mode {
+    background-color: white
+}
+
+/* alert */
+
+.body .alert {
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 0  ;
+    padding: 15px;
+    width: 300px;
+    background-color: rgb(31, 31, 31);
+    border: none;
+    opacity: 0.7;
+}
+
+.body .alert  img{
+    width: 25px;
+}
+
+.body .alert  span{
+    font-size: 14px;
+    color: white
+}
+
+
+/* navbar */
+.navbar { 
+    color: white;
+    z-index: 1;
+}
+
+.navbar-brand img {
+    width: 100px;
+}
+
+.navbar-brand span{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(222, 106, 4);
+}
+
+
+.navbar-collapse ul li {
+    margin: 0 10px;
+}
+
+.navbar-collapse button {
+    margin: 0 10px;
+}
+
+.navbar-collapse ul li a { 
+    color: rgb(154, 153, 153);
+    transition: 0.5s;
+    
+}
+
+.navbar-collapse ul li a:hover { 
+    color: rgb(255, 255, 255);
+}
+
+.navbar .tex svg {
+    color: white;
+   font-size: 20px;
+}
+
+.navbar button {
+    border-radius: 30px;
+    border: none;
+}
+
+.navbar button:hover {
+    opacity: 0.5; 
+}
+
+.navbar button svg{
+    color: black;
+}
+
+.navbar button span{
+    border: none;
+    font-weight: bold;
+    color: black;
+}
+
+.navbar button:nth-child(2)  { 
+    background-color: transparent;
+}
+
+
+
+.navbar button i { 
+    color: grey;
+}
+
+
+/* modal signin */
+
+
+.modal .modal-dialog {
+    width: 350px;
+}
+
+.modal .logo {
+    width: 200px;
+    
+}
+
+.modal .modal-content {     
+    padding: 20px;
+    background-image: url(img/charlesdeluvio-jtmwD4i4v1U-unsplash.jpg);
+    background-color: #121926;
+}
+
+.modal .modal-header {
+    border-bottom: none;
+}
+
+.modal .modal-header h1{ 
+    font-weight: bold;
+    color: white
+}
+
+.modal .modal-header p{ 
+    color: grey;
+    font-size: 12px;
+}
+
+.modal .modal-header label{ 
+    color: grey;
+    font-size: 14px;
+}
+
+.modal .email{ 
+    border-radius: 5px;
+    width: 250px;
+    font-size: 12px;
+    
+}
+
+.modal .passcode{ 
+    border-radius: 5px;
+    width: 250px;
+    font-size: 12px;
+    
+}
+
+.modal label img {
+    width: 15px;
+}
+
+.modal .btn { 
+    width: 250px;
+    /* background-color: rgb(163, 34, 34); */
+    background-color: #ffc107;
+    color: black;
+}
+
+.modal .btn:hover { 
+    
+    background-color: rgb(219, 190, 0);
+}
+
+.modal .btn img{ 
+    width: 15px;
+}
+
+
+
+
+/* jumbotron  */
+.jumbotron { 
+    z-index: -99;
+    background-image: linear-gradient( rgba(0,0,0,0.5) , rgba(0,0,0, 1)), url(img/jumbotron-bg.jpg);
+    margin-top: -100px;
+    height: 650px;
+    /* filter: blur(2px);     */
+}
+
+.jumbotron-box h2 {
+    color: white;
+    font-size: 42px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.jumbotron-box p {
+    color: rgb(120, 120, 120);
+    text-align: center;
+    font-size: 20px;
+}
+
+.jumbotron form {
+    width: 350px;
+    text-align: center;
+}
+
+/* popular */
+
+.popular { 
+    margin-bottom: 100px;
+}
+
+.popular h4 {
+    color: white;
+    font-weight: bold;
+}
+
+.popular a { 
+    margin-top: 120px;
+}
+
+.popular img  {
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+
+.popular img:hover  {
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.popular .card { 
+    border: none;
+    background-color: black;
+}
+
+.popular .card-body {
+    background-color: black;
+    
+}
+
+.popular .card-body p:nth-child(1) {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    
+}
+
+.popular .card-body p:nth-child(2) {
+    
+    font-size: 14px;
+    
+}
+
+.popular-series { 
+    margin-top: 100px;
+}
+
+
+/* carousel */
+
+.carousel .carousel-inner { 
+    border-radius: 0 20px 0 20px;
+}
+
+.carousel .carousel-inner img { 
+    opacity: 0.3;
+    
+}
+
+.carousel .carousel-caption img { 
+    opacity: 1;
+    height: 250px;
+}
+
+.carousel .carousel-caption-box button {
+    width: 150px;
+    margin-top: 25px;
+}
+
+.carousel .carousel-control-prev {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 10px;
+}
+
+.carousel .carousel-control-next  {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    right: 10px;
+}
+
+/* popular-series */
+
+.popular-series{
+    margin-top: 100px;
+}
+
+/* more  */
+.more { 
+    margin-bottom: 100px;
+}
+
+.more h4 { 
+    font-weight: bold;
+    border-left: 3px solid yellow;
+    padding-left: 10px;
+    color: white;
+}
+
+.more h4 { 
+    color: grey;
+}
+
+.more button { 
+    margin: 0 10px ;
+    border-radius: 0px;
+    width: 200px;
+}
+
+.more a {
+    margin: 0 10px ;
+    border-radius: 0px;
+    width: 200px
+}
+
+
+
+/* get-apps */
+.get-apps { 
+    background-color:  rgb(0, 0, 0);
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.get-apps h4 {
+    color: grey;
+    font-size: 18px;
+}
+
+.get-apps img {
+    width: 40px;
+    border-radius: 10px;
+    margin : 0 5px;
+}
+
+/* footer */
+.footer button { 
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.footer span  { 
+    color: white;
+    margin: 0 20px;
+    margin-bottom: 250x;
+}
+
+.footer  { 
+    margin-top: 250x;
+}
+
+@media (max-width:992px){
+
+    .box {
+        text-align: center;
+    }
+
+    .popular .box:nth-child(1){
+        margin-bottom: 50px;
+    }
+
+    .navbar-collapse {
+    position: absolute;
+    top : 50px;
+    }
+
+    .navbar button {
+        border: none;
+        margin-bottom: 10px;
+    }
+
+.carousel .carousel-caption img { 
+    opacity: 1;
+    height: 150px;
+}
+}
+
+
+
+@media (max-width : 767px ) { 
+    .jumbotron-box h2 {
+        font-size: 40px;
+       
+    }
+
+    .popular .popular-detil  {
+    
+    }
+    
+    .popular img {
+        width: 80%;
+        height: auto;
+    }
+
+    .carousel .carousel-caption img { 
+        opacity: 0;
+    }
+
+}
+
+@media (max-width : 576px ) { 
+
+    /* jumbotron */
+    .jumbotron-box h2 {
+        font-size: 22px;
+       
+    }
+
+    .jumbotron-box p {
+        font-size: 16px;
+       
+    }
+
+    .jumbotron .jumbotron-box-2  {
+       display: flex;
+       justify-content: center;
+       /* background-color: #787b7b; */
+       text-align: center;
+       margin-left: 30%;
+    }
+
+    .jumbotron .jumbotron-box-2 .form-control {
+        height: 30px;
+        width: 200px;
+    }
+
+    .jumbotron .jumbotron-box-2 .form-control {
+        height: 30px;
+        width: 200px;
+        font-size: 12px;
+    }
+
+    .jumbotron .jumbotron-box-2 button {
+        font-size: 12px;
+        padding: 5px;
+        height: 30px;
+    }
+
+    
+
+    /* get-apps */
+
+    .get-apps { 
+        margin-bottom: 70px;
+    }
+    .get-apps h4 {
+        font-size: 14px;
+    }
+    .get-apps img {
+        width: 30px;
+    }
+
+    /* popular-movies */
+    
+    .box {
+        text-align: center;
+    }
+    .popular a { 
+        margin-top: 50px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .popular img {
+        width: 80%;
+        height: auto;
+    }
+
+    .popular .coba {
+        display: flex;
+        justify-content: center;
+        
+         /* text-align: center; */
+    }
+
+    .more a {
+        margin-bottom: 10px;
+    }
+
+    /* carousel */
+    .carousel .carousel-caption img { 
+        opacity: 0;
+    }
+
+    .carousel .carousel-caption h5 { 
+        font-size: 18px;
+    }
+
+    .carousel .carousel-caption p { 
+        font-size: 12px;
+    }
+    
+    .carousel .carousel-caption-box button {
+        width: 70px;
+        
+    }
+
+    .modal .modal-dialog { 
+        margin: 30px auto;
+    }
+
+}
