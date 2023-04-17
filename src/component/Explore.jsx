@@ -1,5 +1,6 @@
 import React from 'react'
 import '../style/explore.css'
+import { Outlet, Link } from "react-router-dom";
 
 const Explore = () => {
   return (
@@ -41,10 +42,10 @@ const Explore = () => {
         </svg>
         Filter
       </p>
-      <a href="popularMovies.html">Popular Movies</a>
-      <a href="ratedMovies.html">Top Rated Movies</a>
-      <a href="popularSeries.html">Popular Series </a>
-      <a href="ratedSeries.html">Top Rated Series</a>
+      <a href="popularMovies.html"><Link to="/popular-movies">Popular Movies</Link></a>
+      <a href="ratedMovies.html"><Link to="/rated-movies">Top Rated Movies</Link></a>
+      <a href="popularSeries.html"><Link to="/popular-series">Popular Series</Link> </a>
+      <a href="ratedSeries.html"><Link to="/rated-series">Top Rated Series</Link></a>
     </div>
     {/* breadcrumb */}
     <nav aria-label="breadcrumb">

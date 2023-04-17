@@ -5,6 +5,9 @@ import Explore from './component/Explore'
 import PopularMovies from './component/PopularMovies'
 import { createBrowserRouter, RouterProvider , Outlet} from "react-router-dom";
 import Navbar from './component/Navbar'
+import RatedMovies from './component/RatedMovies'
+import PopularSeries from './component/PopularSeries'
+import RatedSeries from './component/RatedSeries'
 
 const router = createBrowserRouter([
   {
@@ -21,12 +24,28 @@ const router = createBrowserRouter([
     } , 
     {
       path: "/explore",
-      element: <Explore/>,
+      element: 
+      <>
+      <Explore/>
+      </>,
       } , 
       {
         path: "/popular-movies",
         element: <PopularMovies/>,
-        }
+      }, 
+      {
+        path: "/rated-movies",
+        element: <RatedMovies/>,
+      }, 
+      {
+        path: "/popular-series",
+        element: <PopularSeries/>,
+      },
+      {
+        path: "/rated-series",
+        element: <RatedSeries/>
+      },
+      
       
     ],
     
