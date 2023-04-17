@@ -34,75 +34,6 @@
 }
 
 
-/* navbar */
-.navbar { 
-    color: white;
-    z-index: 1;
-}
-
-.navbar-brand img {
-    width: 100px;
-}
-
-.navbar-brand span{
-    font-size: 24px;
-    font-weight: bold;
-    color: rgb(222, 106, 4);
-}
-
-
-.navbar-collapse ul li {
-    margin: 0 10px;
-}
-
-.navbar-collapse button {
-    margin: 0 10px;
-}
-
-.navbar-collapse ul li a { 
-    color: rgb(154, 153, 153);
-    transition: 0.5s;
-    
-}
-
-.navbar-collapse ul li a:hover { 
-    color: rgb(255, 255, 255);
-}
-
-.navbar .tex svg {
-    color: white;
-   font-size: 20px;
-}
-
-.navbar button {
-    border-radius: 30px;
-    border: none;
-}
-
-.navbar button:hover {
-    opacity: 0.5; 
-}
-
-.navbar button svg{
-    color: black;
-}
-
-.navbar button span{
-    border: none;
-    font-weight: bold;
-    color: black;
-}
-
-.navbar button:nth-child(2)  { 
-    background-color: transparent;
-}
-
-
-
-.navbar button i { 
-    color: grey;
-}
-
 
 /* modal signin */
 
@@ -184,7 +115,7 @@
     background-image: linear-gradient( rgba(0,0,0,0.5) , rgba(0,0,0, 1)), url(img/jumbotron-bg.jpg);
     margin-top: -100px;
     height: 650px;
-    /* filter: blur(2px);     */
+    
 }
 
 .jumbotron-box h2 {
@@ -267,10 +198,7 @@
     border-radius: 0 20px 0 20px;
 }
 
-.carousel .carousel-inner img { 
-    opacity: 0.3;
-    
-}
+
 
 .carousel .carousel-caption img { 
     opacity: 1;

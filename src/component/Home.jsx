@@ -12,7 +12,7 @@ const Home = () => {
     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   {/*  navbar  */}
-  <nav className="navbar navbar-expand-lg ">
+  {/* <nav className="navbar navbar-expand-lg ">
     <div className="container">
       <a className="navbar-brand" href="#"> 
         <img src="img/WATCHWATCH.png" alt />
@@ -55,7 +55,7 @@ const Home = () => {
         </button>
       </div>
     </div>
-  </nav>
+  </nav> */}
   {/* modal signin */}
   <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">

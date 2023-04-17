@@ -1,11 +1,11 @@
 import React from 'react'
-import '../style/popularMovies.css'
 import { Outlet, Link } from "react-router-dom";
 
-const PopularMovies = () => {
+
+const RatedMovies = () => {
   return (
-    <div className='body'>
- 
+   <div className='body'>
+  
   {/* modal signin */}
   <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
@@ -60,83 +60,77 @@ const PopularMovies = () => {
           </svg>
           Explore
         </li>
-        <li className="breadcrumb-item active" aria-current="page">Popular Movies</li>
+        <li className="breadcrumb-item active" aria-current="page">Top Rated Movies</li>
       </ol>
     </nav>
     {/* popular movies */}
     <div className="popular-movies">
       <div className="row">
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular1.jpg" alt />
+          <img src="img/rated1.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular2.jpg" alt />
+          <img src="img/rated2.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular3.jpg" alt />
+          <img src="img/rated3.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular4.jpg" alt />
+          <img src="img/rated4.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular5.jpg" alt />
+          <img src="img/rated5.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular6.jpg" alt />
+          <img src="img/rated6.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular7.jpg" alt />
+          <img src="img/rated7.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular8.jpg" alt />
+          <img src="img/rated8.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular9.jpg" alt />
+          <img src="img/rated9.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular10.jpg" alt />
+          <img src="img/rated10.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular11.jpg" alt />
+          <img src="img/rated11.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular12.jpg" alt />
+          <img src="img/rated12.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular13.jpg" alt />
+          <img src="img/rated13.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular14.jpg" alt />
+          <img src="img/rated14.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular15.jpg" alt />
+          <img src="img/rated15.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular16.jpg" alt />
+          <img src="img/rated16.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular17.jpg" alt />
+          <img src="img/rated17.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular18.jpg" alt />
+          <img src="img/rated18.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular19.jpg" alt />
+          <img src="img/rated19.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular20.jpg" alt />
+          <img src="img/rated20.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular21.jpg" alt />
+          <img src="img/rated21.jpg" alt />
         </div>
         <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular22.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular23.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/popular24.jpg" alt />
+          <img src="img/rated22.jpg" alt />
         </div>
       </div>
     </div>
@@ -170,4 +164,4 @@ const PopularMovies = () => {
   )
 }
 
-export default PopularMovies
+export default RatedMovies
