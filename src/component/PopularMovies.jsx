@@ -1,5 +1,6 @@
 import React from 'react'
 import '../style/popularMovies.css'
+import { Outlet, Link } from "react-router-dom";
 
 const PopularMovies = () => {
   return (
@@ -41,10 +42,14 @@ const PopularMovies = () => {
         </svg>
         Filter
       </p>
-      <a href="popularMovies.html">Popular Movies</a>
+      {/* <a href="popularMovies.html">Popular Movies</a>
       <a href="ratedMovies.html">Top Rated Movies</a>
       <a href="popularSeries.html">Popular Series </a>
-      <a href="ratedSeries.html">Top Rated Series</a>
+      <a href="ratedSeries.html">Top Rated Series</a> */}
+      <a><Link to="/popular-movies">Popular Movies</Link></a>
+      <a><Link to="/rated-movies">Top Rated Movies</Link></a>
+      <a><Link to="/popular-series">Popular Series</Link> </a>
+      <a><Link to="/rated-series">Top Rated Series</Link></a>
     </div>
     {/* breadcrumb */}
     <nav aria-label="breadcrumb">

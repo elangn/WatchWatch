@@ -42,10 +42,10 @@ const Explore = () => {
         </svg>
         Filter
       </p>
-      <a href="popularMovies.html"><Link to="/popular-movies">Popular Movies</Link></a>
-      <a href="ratedMovies.html"><Link to="/rated-movies">Top Rated Movies</Link></a>
-      <a href="popularSeries.html"><Link to="/popular-series">Popular Series</Link> </a>
-      <a href="ratedSeries.html"><Link to="/rated-series">Top Rated Series</Link></a>
+      <a><Link to="/popular-movies">Popular Movies</Link></a>
+      <a><Link to="/rated-movies">Top Rated Movies</Link></a>
+      <a><Link to="/popular-series">Popular Series</Link> </a>
+      <a><Link to="/rated-series">Top Rated Series</Link></a>
     </div>
     {/* breadcrumb */}
     <nav aria-label="breadcrumb">

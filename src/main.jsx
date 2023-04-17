@@ -8,6 +8,7 @@ import Navbar from './component/Navbar'
 import RatedMovies from './component/RatedMovies'
 import PopularSeries from './component/PopularSeries'
 import RatedSeries from './component/RatedSeries'
+import Filter from './component/Filter'
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       path: "/explore",
       element: 
       <>
-      <Explore/>
+      <Explore/>  
       </>,
       } , 
       {
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
         path: "/rated-series",
         element: <RatedSeries/>
       },
+     
       
       
     ],
