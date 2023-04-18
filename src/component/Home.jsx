@@ -7,17 +7,29 @@ import { useEffect, useState } from 'react'
 const Home = () => {
 
   const [movies,setMovies] = useState([]);
+  const [series,setSeries] = useState([]);
+
 
   useEffect(() => {
     axios({
       method: 'get',
       url: 'https://api.themoviedb.org/3/movie/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+    })
+    .then(function (response) {
+      console.log(response.data.results)
+      // const cuma4 = response.data.results.slice(0,4);
+      // console.log(cuma4);
+      setMovies(response.data.results.slice(0,4));
+    }); 
+
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/tv/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
       })
-      .then(function (response) {
-        console.log(response.data.results)
-      
-      setMovies(response.data.results);
-      });
+    .then(function (response) {
+      console.log(response.data.results)
+      setSeries(response.data.results.slice(0,4));
+    });
   }, [])
 
   return (
@@ -140,7 +152,7 @@ const Home = () => {
       </div>
     </div> */}
 
-    { movies.map((item) => {
+    {/* { movies.map((item) => {
       return  ( 
       <div className="popular">
       <div className="row d-flex justify-content-center">
@@ -168,7 +180,7 @@ const Home = () => {
             <div className="box">
               <img src="img/spiderman.jpg" className="card-img-top" alt="..." />
               <div className="card-body">
-              <p className="card-text"> {item.original_title}</p>
+                <p className="card-text"> {item.original_title}</p>
                 <p className="card-text"> {item.release_date}</p>
               </div>
             </div>
@@ -197,8 +209,41 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div> )
-    })}
+    </div> 
+    )
+    })} */}
+
+    {/* popular  */}
+
+    <div className="popular">
+      <div className="row d-flex justify-content-center">
+
+        <div className="col-12 col-lg-3 col-md-12">
+          <div className="box">
+            <h4> Popular movies</h4>
+            <p>browse the best popular movies right now only at WatchWatch </p>
+            <a href="popularMovies.html" className="btn btn-outline-warning btn-sm"> Browse </a>
+          </div>
+        </div>
+
+        { movies.map((item) => {
+          return  ( 
+            <div className="col-12 col-lg-2 col-md-3 col-sm-6">
+              <div className="card film">
+                <div className="box">
+                  <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <p className="card-text"> {item.original_title}</p>
+                    <p className="card-text"> {item.release_date}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+
+      </div>
+    </div>
     
     {/* carousel  */}
     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="false">
@@ -254,6 +299,7 @@ const Home = () => {
         </button>
       </div>
     </div>
+
     {/* popular  Series*/}
     <div className="popular popular-series">
       <div className="row d-flex justify-content-center">
@@ -264,52 +310,27 @@ const Home = () => {
             <a href="PopularSeries.html" className="btn btn-outline-warning btn-sm"> Browse </a>
           </div>
         </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6 ">
-          <div className="card">
-            <div className="box">
-              <img src="img/korean.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Plane</p>
-                <p className="card-text"> 2023. Action/Thriller</p>
+
+        {series.map((item) => {
+          return (
+            <div className="col-12 col-lg-2 col-md-3 col-sm-6 ">
+            <div className="card">
+              <div className="box">
+                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+                <div className="card-body">
+                <p className="card-text"> {item.name}</p>
+                <p className="card-text"> {item.first_air_date}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/digimon.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Spiderman : No way Home</p>
-                <p className="card-text"> 2021. Action/ Adventure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/narcos.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Black Adam</p>
-                <p className="card-text">  2022. Action/ Adventure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/yourname.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Noah</p>
-                <p className="card-text"> 2014. Adventure/ Fantasy
-                </p></div>
-            </div>
-          </div>
-        </div>
+          )
+        })}
+       
+       
       </div>
     </div>
+
     {/* More */}
     <div className="more">
       <div className="box">
