@@ -5,6 +5,7 @@ import '../style/navbar.css'
 const Navbar = () => {
   return (
     <>
+    {/* navbar */}
         <nav className="navbar navbar-expand-lg ">
     <div className="container">
       <a className="navbar-brand" href="#"> 
@@ -51,6 +52,34 @@ const Navbar = () => {
       </div>
     </div>
   </nav>
+
+    {/* modal signin */}
+  <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header d-flex flex-column">
+          <h1 className="modal-title fs-5" id="exampleModalLabel">Sign in</h1>
+          <p className="mb-4">Hi, Enter your details to get sign in to your account</p>
+          <form>
+            <div className="mb-3">
+              <label htmlFor className="mb-2"> 
+                <img src="img/password.png" alt /> Email
+              </label>
+              <input type="email " className="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="input here " />
+            </div>
+            <div className="mb-3">
+              <label htmlFor className="mb-2"> 
+                <img src="img/padlock.png" alt /> Passcode
+              </label>
+              <input type="password" className="form-control passcode" id="exampleInputPassword1" placeholder="input here" />
+            </div>
+            <p>dont have account ? <a href> Signup </a></p>
+            <button type="submit" className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
     </>
   )
 }

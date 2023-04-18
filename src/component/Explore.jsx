@@ -7,7 +7,7 @@ const Explore = () => {
     <div className='body'>
  
   {/* modal signin */}
-  <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+  {/* <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header d-flex flex-column">
@@ -32,7 +32,8 @@ const Explore = () => {
         </div>
       </div>
     </div>
-  </div>
+  </div> */}
+  
   <div className="container">
     {/* Filter */}
     <div className="filter d-flex tes">
