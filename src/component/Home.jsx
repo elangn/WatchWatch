@@ -84,7 +84,7 @@ const Home = () => {
     </div>
 
     {/* popular Movies */}
-    <div className="popular">
+    {/* <div className="popular">
       <div className="row d-flex justify-content-center">
         <div className="col-12 col-lg-3 col-md-12">
           <div className="box">
@@ -138,7 +138,67 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
+
+    { movies.map((item) => {
+      return  ( 
+      <div className="popular">
+      <div className="row d-flex justify-content-center">
+
+        <div className="col-12 col-lg-3 col-md-12">
+          <div className="box">
+            <h4> Popular movies</h4>
+            <p>browse the best popular movies right now only at WatchWatch </p>
+            <a href="popularMovies.html" className="btn btn-outline-warning btn-sm"> Browse </a>
+          </div>
+        </div>
+        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
+          <div className="card film">
+            <div className="box">
+              <img src="img/plane.jpg" className="card-img-top" alt="..." />
+              <div className="card-body">
+                <p className="card-text"> {item.original_title}</p>
+                <p className="card-text"> {item.release_date}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
+          <div className="card">
+            <div className="box">
+              <img src="img/spiderman.jpg" className="card-img-top" alt="..." />
+              <div className="card-body">
+              <p className="card-text"> {item.original_title}</p>
+                <p className="card-text"> {item.release_date}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className=" col-12 col-lg-2 col-md-3 col-sm-6">
+          <div className="card">
+            <div className="box">
+              <img src="img/black-adam.jpg" className="card-img-top" alt="..." />
+              <div className="card-body">
+              <p className="card-text"> {item.original_title}</p>
+                <p className="card-text"> {item.release_date}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
+          <div className="card">
+            <div className="box">
+              <img src="img/noah.jpg" className="card-img-top" alt="..." />
+              <div className="card-body">
+              <p className="card-text"> {item.original_title}</p>
+                <p className="card-text"> {item.release_date}</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> )
+    })}
     
     {/* carousel  */}
     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="false">
