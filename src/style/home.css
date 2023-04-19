@@ -191,6 +191,11 @@
     margin-top: 100px;
 }
 
+.popular a { 
+    text-decoration: none;
+    color: #ffc107;
+}
+
 
 /* carousel */
 
@@ -232,6 +237,13 @@
     margin-top: 100px;
 }
 
+.popular-series a { 
+    text-decoration: none;
+    color: #ffc107;
+}
+
+
+
 /* more  */
 .more { 
     margin-bottom: 100px;
@@ -258,6 +270,11 @@
     margin: 0 10px ;
     border-radius: 0px;
     width: 200px
+}
+
+.more a { 
+    text-decoration: none;
+    color: white
 }
 
 
