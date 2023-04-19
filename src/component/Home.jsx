@@ -119,7 +119,7 @@ const Home = () => {
         <div className="carousel-item active">
           <img src="img/ipman.jpg" className="d-block w-100 " alt="..." />
           <div className="carousel-caption d-flex">
-            <img src="img/ipman4.jpg" alt />
+            
             <div className="carousel-caption-box d-flex  flex-column align-items-start justify-content-center ms-5 text-start">
               <h5>IP Man 4</h5>
               <p>Ip Man and his son encounter racial discrimination after travelling to the United States to seek a better life.</p>
@@ -130,7 +130,7 @@ const Home = () => {
         <div className="carousel-item ">
           <img src="img/ff3.jpg" className="d-block w-100" alt="..." />
           <div className="carousel-caption d-flex">
-            <img src="img/ff6.jpg" alt />
+            
             <div className="carousel-caption-box d-flex  flex-column align-items-start justify-content-center ms-5 text-start">
               <h5>Fast Furious 6</h5>
               <p>Hobbs is tasked with catching a team of mercenary drivers who manage to evade him every time. However, he enlists the help of Dominic and his team in exchange for full pardons for their past crimes.</p>
@@ -141,7 +141,7 @@ const Home = () => {
         <div className="carousel-item">
           <img src="img/sangchi2.jpg" className="d-block w-100" alt="..." />
           <div className="carousel-caption d-flex">
-            <img src="img/sangchi3.jpg_large" alt />
+           
             <div className="carousel-caption-box d-flex  flex-column align-items-start justify-content-center ms-5 text-start">
               <h5>Shang-Chi</h5>
               <p>Shang-Chi, a martial artist, lives a quiet life after he leaves his father and the shadowy Ten Rings organisation behind. Years later, he is forced to confront his past when the Ten Rings attack him.</p>
