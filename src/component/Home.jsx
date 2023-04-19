@@ -1,7 +1,38 @@
 import React from 'react'
 import '../style/home.css'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { Outlet, Link } from "react-router-dom";
+
 
 const Home = () => {
+
+  const [movies,setMovies] = useState([]);
+  const [series,setSeries] = useState([]);
+
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/movie/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+    })
+    .then(function (response) {
+      console.log(response.data.results)
+      // const cuma4 = response.data.results.slice(0,4);
+      // console.log(cuma4);
+      setMovies(response.data.results.slice(0,4));
+    }); 
+
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/tv/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+      })
+    .then(function (response) {
+      console.log(response.data.results)
+      setSeries(response.data.results.slice(0,4));
+    });
+  }, [])
+
   return (
     <>
         <div className='body'>
@@ -11,78 +42,8 @@ const Home = () => {
     <span>Welcome to WatchWatch</span>
     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
-  {/*  navbar  */}
-  {/* <nav className="navbar navbar-expand-lg ">
-    <div className="container">
-      <a className="navbar-brand" href="#"> 
-        <img src="img/WATCHWATCH.png" alt />
-      </a>
-      <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="tex">
-          <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
-            <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-          </svg>
-        </span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li className="nav-item">
-            <a className="nav-link navmovies" aria-current="page" href="#">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link navmovies" aria-current="page" href="explore.html">Explore</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-bookmark-check" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-              </svg>
-              Subscription
-            </a>
-          </li>
-        </ul>
-        <button>
-          <i className="dark fa-solid fa-sun" id="toggleDark" />
-        </button>
-        <br /> 
-        <button type="button" className="btn btn-warning btn-sm mx-2 text-warning" data-bs-toggle="modal" data-bs-target="#signin">
-          <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-            <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
-            <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-          </svg>
-          <span> Sign in</span>
-        </button>
-      </div>
-    </div>
-  </nav> */}
-  {/* modal signin */}
-  <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div className="modal-dialog">
-      <div className="modal-content">
-        <div className="modal-header d-flex flex-column">
-          <h1 className="modal-title fs-5" id="exampleModalLabel">Sign in</h1>
-          <p className="mb-4">Hi, Enter your details  to get sign in to your account</p>
-          <form>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/password.png" alt /> Email
-              </label>
-              <input type="email " className="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="input here " />
-            </div>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/padlock.png" alt /> Passcode
-              </label>
-              <input type="password" className="form-control passcode" id="exampleInputPassword1" placeholder="input here" />
-            </div>
-            <p>don't have account ? <a href> Signup </a></p>
-            <button type="submit" className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
+  
   {/* jumbotron */}
   <div className="jumbotron d-flex justify-content-center align-items-center flex-column">
     <div className="jumbotron-box">
@@ -97,6 +58,7 @@ const Home = () => {
     </div>
   </div>
   <div className="container">
+
     {/* get-apps */}
     <div className="get-apps text-center">  
       <h4> Get WatchWatch</h4>
@@ -105,62 +67,45 @@ const Home = () => {
       <img src="img/playstore.jpeg" alt /> 
       <img src="img/windows.jpg" alt />
     </div>
-    {/* popular Movies */}
+
+
+
+    {/* popular  movies*/}
+
     <div className="popular">
       <div className="row d-flex justify-content-center">
+
         <div className="col-12 col-lg-3 col-md-12">
           <div className="box">
             <h4> Popular movies</h4>
             <p>browse the best popular movies right now only at WatchWatch </p>
-            <a href="popularMovies.html" className="btn btn-outline-warning btn-sm"> Browse </a>
+            {/* <a className="btn btn-outline-warning btn-sm"> <Link to="/popular-movies">Popular Movies</Link></a> */}
+
+             <Link to="/popular-series"> 
+             <a className="btn btn-outline-warning btn-sm"> Popular Series </a>
+             </Link>
           </div>
         </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card film">
-            <div className="box">
-              <img src="img/plane.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Plane</p>
-                <p className="card-text"> 2023. Action/Thriller</p>
+
+        { movies.map((item) => {
+          return  ( 
+            <div className="col-12 col-lg-2 col-md-3 col-sm-6">
+              <div className="card film">
+                <div className="box">
+                  <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <p className="card-text"> {item.original_title}</p>
+                    <p className="card-text"> {item.release_date}</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/spiderman.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Spiderman : No way Home</p>
-                <p className="card-text"> 2021. Action/ Adventure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className=" col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/black-adam.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Black Adam</p>
-                <p className="card-text">  2022. Action/ Adventure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/noah.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Noah</p>
-                <p className="card-text"> 2014. Adventure/ Fantasy
-                </p></div>
-            </div>
-          </div>
-        </div>
+          )
+        })}
+
       </div>
     </div>
+    
     {/* carousel  */}
     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="false">
       {/* indicators */}
@@ -215,6 +160,7 @@ const Home = () => {
         </button>
       </div>
     </div>
+
     {/* popular  Series*/}
     <div className="popular popular-series">
       <div className="row d-flex justify-content-center">
@@ -222,62 +168,38 @@ const Home = () => {
           <div className="box">
             <h4> Popular Series</h4>
             <p>browse the best popular series right now only at WatchWatch </p>
-            <a href="PopularSeries.html" className="btn btn-outline-warning btn-sm"> Browse </a>
+            {/* <a  className="btn btn-outline-warning btn-sm"><Link to="/popular-series">Popular Series</Link>  </a> */}
+
+            <Link to="/popular-series"><a  className="btn btn-outline-warning btn-sm"> Popular Series </a></Link>  
           </div>
         </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6 ">
-          <div className="card">
-            <div className="box">
-              <img src="img/korean.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Plane</p>
-                <p className="card-text"> 2023. Action/Thriller</p>
+
+        {series.map((item) => {
+          return (
+            <div className="col-12 col-lg-2 col-md-3 col-sm-6 ">
+            <div className="card">
+              <div className="box">
+                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+                <div className="card-body">
+                <p className="card-text"> {item.name}</p>
+                <p className="card-text"> {item.first_air_date}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/digimon.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Spiderman : No way Home</p>
-                <p className="card-text"> 2021. Action/ Adventure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/narcos.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Black Adam</p>
-                <p className="card-text">  2022. Action/ Adventure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-lg-2 col-md-3 col-sm-6">
-          <div className="card">
-            <div className="box">
-              <img src="img/yourname.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-text"> Noah</p>
-                <p className="card-text"> 2014. Adventure/ Fantasy
-                </p></div>
-            </div>
-          </div>
-        </div>
+          )
+        })}
+       
+       
       </div>
     </div>
+
     {/* More */}
     <div className="more">
       <div className="box">
         <h4> More to Watch</h4>
         <p> WatchWatch help you select the perfect next show or movie to watch</p>
-        {/* <button class="btn btn-outline-light btn-sm"> Explore</button> */}
-        <a href="explore.html" className="btn btn-outline-light btn-sm" role="button">Explore</a>
+        <Link to="/explore"><a  className="btn btn-outline-light btn-sm" role="button">Explore </a></Link>
         <button className="btn btn-outline-light btn-sm"> Subcsriptions </button>
       </div>
     </div>
