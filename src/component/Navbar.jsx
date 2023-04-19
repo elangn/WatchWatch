@@ -21,11 +21,11 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <a className="nav-link navmovies" aria-current="page" href="#"><Link to="/">Home</Link> </a>
+            <a className="nav-link navmovies" aria-current="page" ><Link to="/">Home</Link> </a>
             
           </li>
           <li className="nav-item">
-            <a className="nav-link navmovies" aria-current="page" href="explore.html"><Link to="/explore">Explore</Link></a>
+            <a className="nav-link navmovies" aria-current="page" ><Link to="/explore">Explore</Link></a>
             
           </li>
           <li className="nav-item">
