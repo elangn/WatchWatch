@@ -1,8 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
 import '../style/navbar.css'
 
 const Navbar = () => {
+
+  const [username, setUsername] = useState ('');
+  const [password, setPassword] = useState ('');
+
+  axios({
+    method: 'get',
+    url: 'https://api.themoviedb.org/3/authentication/token/new', 
+    params : { 
+      api_key : '2782c32843fa2374f6ba6deaf81a8e4c'
+    }
+  })
+  .then(function (response1) {
+      axios({
+        method: 'post',
+        url: 'https://api.themoviedb.org/3/authentication/token/validate_with_login', 
+        params : {
+          api_key : '2782c32843fa2374f6ba6deaf81a8e4c'
+        } , 
+        data: {
+          username: username,
+          password: password,
+          request_token: response1.data.request_token
+        } 
+        
+      })
+        .then(function (response2) {
+          axios({
+            method: 'post',
+            url: 'https://api.themoviedb.org/3/authentication/session/new',
+            params : {
+              api_key : '2782c32843fa2374f6ba6deaf81a8e4c'
+            },
+            data : {
+              request_token: response2.data.request_token
+            }
+          })
+            .then(function (response3) {
+              localStorage.setItem('session', JSON.stringify(response3.data.session_id));
+
+              axios({
+                method: 'get',
+                url: 'https://api.themoviedb.org/3/account',
+                params : {
+                  api_key : '2782c32843fa2374f6ba6deaf81a8e4c', 
+                  session_id : response3.data.session_id
+                }
+              })
+                .then(function (response4) {
+                  localStorage.setItem('account', JSON.stringify(response4.data));
+                  console.log(response4)
+                });
+            });
+        });
+    
+    });
+
+
   return (
     <>
     {/* navbar */}
