@@ -1,37 +1,32 @@
 import React from 'react'
 import { Outlet, Link } from "react-router-dom";
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const PopularSeries = () => {
+
+  const [movies,setMovies] = useState([]);
+  const [series,setSeries] = useState([]);
+
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/tv/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+    })
+    .then(function (response) {
+      console.log(response)
+      // const cuma4 = response.data.results.slice(0,4);
+      // console.log(cuma4);
+      setMovies(response.data.results);
+    }); 
+  }, [])
+
+
   return (
     <div className='body'>
   
-  {/* modal signin */}
-  {/* <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div className="modal-dialog">
-      <div className="modal-content">
-        <div className="modal-header d-flex flex-column">
-          <h1 className="modal-title fs-5" id="exampleModalLabel">Sign in</h1>
-          <p className="mb-4">Hi, Enter your details to get sign in to your account</p>
-          <form>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/password.png" alt /> Email
-              </label>
-              <input type="email " className="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="input here " />
-            </div>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/padlock.png" alt /> Passcode
-              </label>
-              <input type="password" className="form-control passcode" id="exampleInputPassword1" placeholder="input here" />
-            </div>
-            <p>dont have account ? <a href> Signup </a></p>
-            <button type="submit" className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> */}
+
   
   <div className="container">
     {/* Filter */}
@@ -63,83 +58,22 @@ const PopularSeries = () => {
         <li className="breadcrumb-item active" aria-current="page">Popular Series</li>
       </ol>
     </nav>
-    {/* popular movies */}
+
+    {/* popularseries */}
     <div className="popular-movies">
       <div className="row">
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series1.jpg" alt />
+
+      { movies.map((item) => {
+          return  ( 
+            <div className="col-6 col-md-4 col-lg-2">
+          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
         </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series2.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series3.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series4.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series5.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series6.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series7.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series8.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series9.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series10.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series11.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series12.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series13.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series14.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series15.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series16.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series17.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series18.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series19.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series20.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series21.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series22.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series23.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/series24.jpg" alt />
-        </div>
+          )
+        })}
+        
       </div>
     </div>
+
     {/* footer */}
     <div className="footer text-center">
       <div className="row">

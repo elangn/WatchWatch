@@ -1,40 +1,36 @@
 import React from 'react'
 import { Outlet, Link } from "react-router-dom";
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 
 const RatedMovies = () => {
+
+  
+  const [movies,setMovies] = useState([]);
+  const [series,setSeries] = useState([]);
+
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/movie/top_rated?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+    })
+    .then(function (response) {
+      console.log(response)
+      // const cuma4 = response.data.results.slice(0,4);
+      // console.log(cuma4);
+      setMovies(response.data.results);
+    }); 
+  }, [])
+
   return (
    <div className='body'>
   
-  {/* modal signin */}
-  {/* <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div className="modal-dialog">
-      <div className="modal-content">
-        <div className="modal-header d-flex flex-column">
-          <h1 className="modal-title fs-5" id="exampleModalLabel">Sign in</h1>
-          <p className="mb-4">Hi, Enter your details to get sign in to your account</p>
-          <form>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/password.png" alt /> Email
-              </label>
-              <input type="email " className="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="input here " />
-            </div>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/padlock.png" alt /> Passcode
-              </label>
-              <input type="password" className="form-control passcode" id="exampleInputPassword1" placeholder="input here" />
-            </div>
-            <p>dont have account ? <a href> Signup </a></p>
-            <button type="submit" className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> */}
+  
 
   <div className="container">
+
     {/* Filter */}
     <div className="filter d-flex tes">
       <p className="me-2">
@@ -52,6 +48,7 @@ const RatedMovies = () => {
       <a><Link to="/popular-series">Popular Series</Link> </a>
       <a><Link to="/rated-series">Top Rated Series</Link></a>
     </div>
+
     {/* breadcrumb */}
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -64,77 +61,23 @@ const RatedMovies = () => {
         <li className="breadcrumb-item active" aria-current="page">Top Rated Movies</li>
       </ol>
     </nav>
-    {/* popular movies */}
+
+    {/* rated movies */}
     <div className="popular-movies">
       <div className="row">
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated1.jpg" alt />
+
+      { movies.map((item) => {
+          return  ( 
+            <div className="col-6 col-md-4 col-lg-2">
+          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
         </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated2.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated3.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated4.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated5.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated6.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated7.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated8.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated9.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated10.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated11.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated12.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated13.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated14.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated15.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated16.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated17.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated18.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated19.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated20.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated21.jpg" alt />
-        </div>
-        <div className="col-6 col-md-4 col-lg-2">
-          <img src="img/rated22.jpg" alt />
-        </div>
+          )
+        })}
+        
       </div>
     </div>
+
+
     {/* footer */}
     <div className="footer text-center">
       <div className="row">

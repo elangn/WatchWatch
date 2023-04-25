@@ -17,7 +17,7 @@ const Home = () => {
       url: 'https://api.themoviedb.org/3/movie/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
     })
     .then(function (response) {
-      console.log(response.data.results)
+      console.log(response)
       // const cuma4 = response.data.results.slice(0,4);
       // console.log(cuma4);
       setMovies(response.data.results.slice(0,4));
@@ -95,7 +95,7 @@ const Home = () => {
                   <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text"> {item.original_title}</p>
-                    <p className="card-text"> {item.release_date}</p>
+                    <p className="card-text"> <i class="fa-solid fa-star"></i> {item.vote_average}</p>
                   </div>
                 </div>
               </div>
@@ -182,7 +182,7 @@ const Home = () => {
                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                 <div className="card-body">
                 <p className="card-text"> {item.name}</p>
-                <p className="card-text"> {item.first_air_date}</p>
+                <p className="card-text"> <i class="fa-solid fa-star"></i> {item.vote_average}</p>
                 </div>
               </div>
             </div>
