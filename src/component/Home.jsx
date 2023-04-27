@@ -38,7 +38,7 @@ const Home = () => {
         <div className='body'>
   {/* alert */}
   <div className=" alert alert-warning alert-dismissible fade show" role="alert">
-    <img src="img/waving-hand.png" alt />
+    <img src="img/waving-hand.png"  />
     <span>Welcome to WatchWatch</span>
     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
@@ -62,10 +62,10 @@ const Home = () => {
     {/* get-apps */}
     <div className="get-apps text-center">  
       <h4> Get WatchWatch</h4>
-      <img src="img/apple tv 2.png" alt className />
-      <img src="img/App_Store_(iOS).svg.png" alt />
-      <img src="img/playstore.jpeg" alt /> 
-      <img src="img/windows.jpg" alt />
+      <img src="img/apple tv 2.png"  />
+      <img src="img/App_Store_(iOS).svg.png"  />
+      <img src="img/playstore.jpeg"  /> 
+      <img src="img/windows.jpg"  />
     </div>
 
 
@@ -79,23 +79,23 @@ const Home = () => {
           <div className="box">
             <h4> Popular movies</h4>
             <p>browse the best popular movies right now only at WatchWatch </p>
-            {/* <a className="btn btn-outline-warning btn-sm"> <Link to="/popular-movies">Popular Movies</Link></a> */}
+            
 
-             <Link to="/popular-series"> 
-             <a className="btn btn-outline-warning btn-sm"> Popular Series </a>
+             <Link to="/popular-series" className="btn btn-outline-warning btn-sm"> 
+              Popular Series 
              </Link>
           </div>
         </div>
 
-        { movies.map((item) => {
+        { movies.map((item, i) => {
           return  ( 
-            <div className="col-12 col-lg-2 col-md-3 col-sm-6">
+            <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6">
               <div className="card film">
                 <div className="box">
                   <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text"> {item.original_title}</p>
-                    <p className="card-text"> <i class="fa-solid fa-star"></i> {item.vote_average}</p>
+                    <p className="card-text"> <i className="fa-solid fa-star"></i> {item.vote_average}</p>
                   </div>
                 </div>
               </div>
@@ -168,21 +168,21 @@ const Home = () => {
           <div className="box">
             <h4> Popular Series</h4>
             <p>browse the best popular series right now only at WatchWatch </p>
-            {/* <a  className="btn btn-outline-warning btn-sm"><Link to="/popular-series">Popular Series</Link>  </a> */}
+            
 
-            <Link to="/popular-series"><a  className="btn btn-outline-warning btn-sm"> Popular Series </a></Link>  
+            <Link className="btn btn-outline-warning btn-sm" to="/popular-series"> Popular Series </Link>  
           </div>
         </div>
 
-        {series.map((item) => {
+        {series.map((item, i) => {
           return (
-            <div className="col-12 col-lg-2 col-md-3 col-sm-6 ">
+            <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6 ">
             <div className="card">
               <div className="box">
                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                 <div className="card-body">
                 <p className="card-text"> {item.name}</p>
-                <p className="card-text"> <i class="fa-solid fa-star"></i> {item.vote_average}</p>
+                <p className="card-text"> <i className="fa-solid fa-star"></i> {item.vote_average}</p>
                 </div>
               </div>
             </div>
@@ -199,7 +199,7 @@ const Home = () => {
       <div className="box">
         <h4> More to Watch</h4>
         <p> WatchWatch help you select the perfect next show or movie to watch</p>
-        <Link to="/explore"><a  className="btn btn-outline-light btn-sm" role="button">Explore </a></Link>
+        <Link to="/explore" className="btn btn-outline-light btn-sm" role="button" >Explore </Link>
         <button className="btn btn-outline-light btn-sm"> Subcsriptions </button>
       </div>
     </div>
