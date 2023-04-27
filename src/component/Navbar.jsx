@@ -77,8 +77,11 @@ const Navbar = () => {
                   });
               });
           });
+      // .catch(error => { 
+      //   alert('cek username / password anda ')
+      // })
+      })
       
-      });
   }
 
   
