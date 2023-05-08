@@ -1,39 +1,37 @@
 import React from 'react'
 import '../style/explore.css'
 import { Outlet, Link } from "react-router-dom";
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const Explore = () => {
+
+  const [movies,setMovies] = useState([]);
+  const [series,setSeries] = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/movie/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+    })
+    .then(function (response) {
+      console.log(response.data.results)
+      setMovies(response.data.results.slice(0,6));
+    }); 
+
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/tv/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+      })
+    .then(function (response) {
+      console.log(response.data.results)
+      setSeries(response.data.results.slice(0,6));
+    });
+  }, [])
+
   return (
     <div className='body'>
- 
-  {/* modal signin */}
-  {/* <div className="modal fade" id="signin" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div className="modal-dialog">
-      <div className="modal-content">
-        <div className="modal-header d-flex flex-column">
-          <h1 className="modal-title fs-5" id="exampleModalLabel">Sign in</h1>
-          <p className="mb-4">Hi, Enter your details to get sign in to your account</p>
-          <form>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/password.png" alt /> Email
-              </label>
-              <input type="email " className="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="input here " />
-            </div>
-            <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/padlock.png" alt /> Passcode
-              </label>
-              <input type="password" className="form-control passcode" id="exampleInputPassword1" placeholder="input here" />
-            </div>
-            <p>dont have account ? <a href> Signup </a></p>
-            <button type="submit" className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> */}
-  
+
   <div className="container">
     {/* Filter */}
     <div className="filter d-flex tes">
@@ -43,10 +41,10 @@ const Explore = () => {
         </svg>
         Filter
       </p>
-      <a><Link to="/popular-movies">Popular Movies</Link></a>
-      <a><Link to="/rated-movies">Top Rated Movies</Link></a>
-      <a><Link to="/popular-series">Popular Series</Link> </a>
-      <a><Link to="/rated-series">Top Rated Series</Link></a>
+      <Link to="/popular-movies">Popular Movies</Link>
+     <Link to="/rated-movies">Top Rated Movies</Link>
+      <Link to="/popular-series">Popular Series</Link> 
+      <Link to="/rated-series">Top Rated Series</Link>
     </div>
     {/* breadcrumb */}
     <nav aria-label="breadcrumb">
@@ -59,6 +57,7 @@ const Explore = () => {
         </li>
       </ol>
     </nav>
+
     {/* popular movies */}
     <h3 className="judul">Popular Movies</h3>
     <p> Top Popular movies pick by WatchWatch</p>
@@ -66,89 +65,81 @@ const Explore = () => {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <div className="row">
+
+            {movies.map((item, i ) => {
+              return (
+                <div key={i} className="col-6 col-md-4 col-lg-2" >
+                  <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+                </div>
+              )
+            })}
+
+         
+          </div>
+        </div>
+        <div className="carousel-item">
+          <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/ant-man.jpg" alt />
+              <img src="img/popular5.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/spiderman.jpg" alt />
+              <img src="img/popular6.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular1.jpg" alt />
+              <img src="img/popular7.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular2.jpg" alt />
+              <img src="img/popular8.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular3.jpg" alt />
+              <img src="img/popular9.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular4.jpg" alt />
+              <img src="img/popular10.jpg"  />
             </div>
           </div>
         </div>
         <div className="carousel-item">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular5.jpg" alt />
+              <img src="img/popular11.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular6.jpg" alt />
+              <img src="img/popular12.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular7.jpg" alt />
+              <img src="img/popular13.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular8.jpg" alt />
+              <img src="img/popular14.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular9.jpg" alt />
+              <img src="img/popular15.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular10.jpg" alt />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular11.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular12.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular13.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular14.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular15.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular16.jpg" alt />
+              <img src="img/popular16.jpg"  />
             </div>
           </div>
         </div>
         <div className="carousel-item">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular17.jpg" alt />
+              <img src="img/popular17.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular18.jpg" alt />
+              <img src="img/popular18.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular19.jpg" alt />
+              <img src="img/popular19.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular20.jpg" alt />
+              <img src="img/popular20.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular21.jpg" alt />
+              <img src="img/popular21.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular22.jpg" alt />
+              <img src="img/popular22.jpg"  />
             </div>
           </div>
         </div>
@@ -170,66 +161,66 @@ const Explore = () => {
         <div className="carousel-item active">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated1.jpg" alt />
+              <img src="img/rated1.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated2.jpg" alt />
+              <img src="img/rated2.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated3.jpg" alt />
+              <img src="img/rated3.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated4.jpg" alt />
+              <img src="img/rated4.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated5.jpg" alt />
+              <img src="img/rated5.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated6.jpg" alt />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated7.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated8.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated9.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated10.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated11.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated12.jpg" alt />
+              <img src="img/rated6.jpg"  />
             </div>
           </div>
         </div>
         <div className="carousel-item">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated13.jpg" alt />
+              <img src="img/rated7.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated14.jpg" alt />
+              <img src="img/rated8.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated15.jpg" alt />
+              <img src="img/rated9.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated16.jpg" alt />
+              <img src="img/rated10.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated17.jpg" alt />
+              <img src="img/rated11.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated18.jpg" alt />
+              <img src="img/rated12.jpg"  />
+            </div>
+          </div>
+        </div>
+        <div className="carousel-item">
+          <div className="row">
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/rated13.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/rated14.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/rated15.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/rated16.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/rated17.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/rated18.jpg"  />
             </div>
           </div>
         </div>
@@ -251,66 +242,66 @@ const Explore = () => {
         <div className="carousel-item active">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series1.jpg" alt />
+              <img src="img/series1.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series2.jpg" alt />
+              <img src="img/series2.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series3.jpg" alt />
+              <img src="img/series3.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series4.jpg" alt />
+              <img src="img/series4.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series5.jpg" alt />
+              <img src="img/series5.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series6.jpg" alt />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series7.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series19.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series9.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series10.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series11.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series12.jpg" alt />
+              <img src="img/series6.jpg"  />
             </div>
           </div>
         </div>
         <div className="carousel-item">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series13.jpg" alt />
+              <img src="img/series7.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series14.jpg" alt />
+              <img src="img/series19.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series15.jpg" alt />
+              <img src="img/series9.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series16.jpg" alt />
+              <img src="img/series10.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series17.jpg" alt />
+              <img src="img/series11.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series18.jpg" alt />
+              <img src="img/series12.jpg"  />
+            </div>
+          </div>
+        </div>
+        <div className="carousel-item">
+          <div className="row">
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/series13.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/series14.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/series15.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/series16.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/series17.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/series18.jpg"  />
             </div>
           </div>
         </div>
@@ -332,66 +323,66 @@ const Explore = () => {
         <div className="carousel-item active">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr1.jpg" alt />
+              <img src="img/sr1.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr2.jpg" alt />
+              <img src="img/sr2.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr3.jpg" alt />
+              <img src="img/sr3.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr4.jpg" alt />
+              <img src="img/sr4.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr5.jpg" alt />
+              <img src="img/sr5.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr6.jpg" alt />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr7.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr8.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr9.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr10.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr11.jpg" alt />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr12.jpg" alt />
+              <img src="img/sr6.jpg"  />
             </div>
           </div>
         </div>
         <div className="carousel-item">
           <div className="row">
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr13.jpg" alt />
+              <img src="img/sr7.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr14.jpg" alt />
+              <img src="img/sr8.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr15.jpg" alt />
+              <img src="img/sr9.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr16.jpg" alt />
+              <img src="img/sr10.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr17.jpg" alt />
+              <img src="img/sr11.jpg"  />
             </div>
             <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr18.jpg" alt />
+              <img src="img/sr12.jpg"  />
+            </div>
+          </div>
+        </div>
+        <div className="carousel-item">
+          <div className="row">
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/sr13.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/sr14.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/sr15.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/sr16.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/sr17.jpg"  />
+            </div>
+            <div className="col-6 col-md-4 col-lg-2">
+              <img src="img/sr18.jpg"  />
             </div>
           </div>
         </div>

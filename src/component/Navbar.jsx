@@ -1,15 +1,99 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
 import '../style/navbar.css'
+import axios from 'axios';
 
 const Navbar = () => {
+
+  const isLogin = JSON.parse(localStorage.getItem('session'));
+  const account = JSON.parse(localStorage.getItem('account'));
+  
+
+  const [username, setUsername] = useState ('');
+  const [password, setPassword] = useState ('');
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload()
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/authentication/token/new', 
+      params : { 
+        api_key : '2782c32843fa2374f6ba6deaf81a8e4c'
+      }
+    })
+    .then(function (response1) {
+        axios({
+          method: 'post',
+          url: 'https://api.themoviedb.org/3/authentication/token/validate_with_login', 
+          params : {
+            api_key : '2782c32843fa2374f6ba6deaf81a8e4c'
+          } , 
+          data: {
+            username: username,
+            password: password,
+            request_token: response1.data.request_token
+          } 
+          
+        })
+          .then(function (response2) {
+            axios({
+              method: 'post',
+              url: 'https://api.themoviedb.org/3/authentication/session/new',
+              params : {
+                api_key : '2782c32843fa2374f6ba6deaf81a8e4c'
+              },
+              data : {
+                request_token: response2.data.request_token
+              }
+            })
+              .then(function (response3) {
+                localStorage.setItem('session', JSON.stringify(response3.data.session_id));
+  
+                axios({
+                  method: 'get',
+                  url: 'https://api.themoviedb.org/3/account',
+                  params : {
+                    api_key : '2782c32843fa2374f6ba6deaf81a8e4c', 
+                    session_id : response3.data.session_id
+                  }
+                })
+                  .then(function (response4) {
+                    localStorage.setItem('account', JSON.stringify(response4.data));
+                    console.log(response4);
+                    window.location.reload();
+                  });
+              });
+          });
+      // .catch(error => { 
+      //   alert('cek username / password anda ')
+      // })
+      })
+      
+  }
+
+  
+
+
   return (
     <>
     {/* navbar */}
         <nav className="navbar navbar-expand-lg ">
     <div className="container">
       <a className="navbar-brand" href="#"> 
-        <img src="img/WATCHWATCH.png" alt />
+        <img src="img/WATCHWATCH.png" />
       </a>
       <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="tex">
@@ -21,11 +105,11 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <a className="nav-link navmovies" aria-current="page" ><Link to="/">Home</Link> </a>
+            <Link to="/" className="nav-link navmovies" aria-current="page">Home</Link> 
             
           </li>
           <li className="nav-item">
-            <a className="nav-link navmovies" aria-current="page" ><Link to="/explore">Explore</Link></a>
+            <Link to="/explore" className="nav-link navmovies" aria-current="page">Explore</Link>
             
           </li>
           <li className="nav-item">
@@ -42,13 +126,16 @@ const Navbar = () => {
           <i className="dark fa-solid fa-sun" id="toggleDark" />
         </button>
         <br /> 
-        <button type="button" className="btn btn-warning btn-sm mx-2 text-warning" data-bs-toggle="modal" data-bs-target="#signin">
+
+        {isLogin ? (<> <button onClick={handleLogout} type='button'> {account.name } </button></>) : (<>  <button type="button" className="btn btn-warning btn-sm mx-2 text-warning" data-bs-toggle="modal" data-bs-target="#signin">
           <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
             <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
           </svg>
           <span> Sign in</span>
-        </button>
+        </button> </>)}
+
+        
       </div>
     </div>
   </nav>
@@ -60,21 +147,30 @@ const Navbar = () => {
         <div className="modal-header d-flex flex-column">
           <h1 className="modal-title fs-5" id="exampleModalLabel">Sign in</h1>
           <p className="mb-4">Hi, Enter your details to get sign in to your account</p>
+
+          {/* form login */}
           <form>
             <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/password.png" alt /> Email
+              <label  className="mb-2"> 
+                <img src="img/password.png" /> Username
               </label>
-              <input type="email " className="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="input here " />
+
+              <input value={username} onChange={handleUsername} type="text" className="form-control email" id="username" name='username' aria-describedby="emailHelp" placeholder="input here " />
+
             </div>
+
             <div className="mb-3">
-              <label htmlFor className="mb-2"> 
-                <img src="img/padlock.png" alt /> Passcode
+              <label  className="mb-2"> 
+                <img src="img/padlock.png"  /> Passcode
               </label>
-              <input type="password" className="form-control passcode" id="exampleInputPassword1" placeholder="input here" />
+
+              <input value={password} onChange={handlePassword} type="password" className="form-control passcode" id="password" name='password' placeholder="input here" />
+ 
             </div>
-            <p>dont have account ? <a href> Signup </a></p>
-            <button type="submit" className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
+
+            <p>dont have account ? <a href='#'> Signup </a></p>
+
+            <button onClick={handleLogin} type="submit" value='submit' className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
           </form>
         </div>
       </div>
