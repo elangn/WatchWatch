@@ -35,6 +35,7 @@ const Navbar = () => {
       }
     })
     .then(function (response1) {
+      alert('login sukses');
         axios({
           method: 'post',
           url: 'https://api.themoviedb.org/3/authentication/token/validate_with_login', 
@@ -113,8 +114,8 @@ const Navbar = () => {
             
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-bookmark-check" viewBox="0 0 16 16">
+            <a className="nav-link navmovies  mb-0 pb-0" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-bookmark-check" viewBox="0 0 16 16" className="me-1">
                 <path fillRule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                 <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
               </svg>
@@ -122,12 +123,21 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-        <button>
-          <i className="dark fa-solid fa-sun" id="toggleDark" />
-        </button>
+        
         <br /> 
 
-        {isLogin ? (<> <button onClick={handleLogout} type='button'> {account.name } </button></>) : (<>  <button type="button" className="btn btn-warning btn-sm mx-2 text-warning" data-bs-toggle="modal" data-bs-target="#signin">
+       
+
+        {isLogin ? (<div className="dropdown">
+          <button className="btn btn-secondary dropdown-toggle nama " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Hi, {account.name }
+          </button>
+          <ul className="dropdown-menu nama2 my-0">
+            <li onClick={handleLogout}  ><a className="dropdown-item nama2" href="#">Logout</a></li>
+           
+          </ul>
+        </div>
+        ) : (<>  <button type="button" className="btn btn-warning btn-sm mx-2 text-warning" data-bs-toggle="modal" data-bs-target="#signin">
           <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
             <path fillRule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />

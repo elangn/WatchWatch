@@ -10,6 +10,28 @@
     background-color: white
 }
 
+/* navbar */ 
+
+.navbar .navmovies{ 
+    color: grey
+}
+
+.navbar .dropdown .nama { 
+    font-size: 16px;
+    background-color: transparent;
+    color: white;
+}
+
+.navbar .dropdown .nama2 { 
+   background-color: transparent;
+   
+}
+
+.navbar .dropdown .nama2:hover { 
+    background-color: transparent;
+    color: white;
+ }
+
 /* alert */
 
 .body .alert {
