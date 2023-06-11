@@ -163,6 +163,7 @@
 
 .popular { 
     margin-bottom: 100px;
+    margin-top: 100px;
 }
 
 .popular h4 {
@@ -251,6 +252,20 @@
     height: 50px;
     top: 50%;
     right: 10px;
+}
+
+
+/* Upcoming movies */
+
+.upcoming h4 { 
+    font-weight: bold;
+    border-left: 5px solid  #ffc107;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+ .tombol-r { 
+    margin-top: 20px;
 }
 
 /* popular-series */

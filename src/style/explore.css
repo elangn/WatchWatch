@@ -135,39 +135,19 @@
     color: white;
 }
 
-/* carousel  */
-
-
-.caousel-header { 
-    margin-bottom: 70px;
-    margin-top: -65px;
+.card-popular-movies  { 
+    width: 200px;
+    border: none;
 }
 
-.carousel 
-.carousel-item img {
-    width: 100%;
-}
-
-.carousel 
-.carousel-item img:hover {
-    opacity: 0.5;
-    transition: 0.3s;
-}
-
-.carousel .carousel-control-prev  { 
-    background-color: black;
-    width: 50px;
-}
-
-.carousel .carousel-control-next {
-    background-color: black;
-    width: 50px;
-    color: yellow;
-}
 
 /* rated movies */
 #rated-movies {
     margin-bottom: 70px;
+}
+
+.card-rated-movies { 
+    border: none;
 }
 
 /* popular series */
@@ -196,7 +176,27 @@
 }
 
 .footer  { 
-    margin-top: 250x;
+    margin-top: 100px;
+}
+
+
+/* button swipper */
+
+.r-button { 
+    margin-top: 20px;
+}
+
+.btn-prv { 
+    /* background-color: grey; */
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+    margin-right: 20px;
+}
+
+.btn-nxt { 
+    /* background-color: grey; */
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
 }
 
 @media (max-width : 992px){

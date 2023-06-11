@@ -156,7 +156,7 @@ const Navbar = () => {
       <div className="modal-content">
         <div className="modal-header d-flex flex-column">
           <h1 className="modal-title fs-5" id="exampleModalLabel">Sign in</h1>
-          <p className="mb-4">Hi, Enter your details to get sign in to your account</p>
+          <p className="mb-4">Enter your details to get sign in to your account</p>
 
           {/* form login */}
           <form>

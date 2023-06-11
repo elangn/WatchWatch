@@ -3,11 +3,19 @@ import '../style/explore.css'
 import { Outlet, Link } from "react-router-dom";
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useSwiper } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const Explore = () => {
 
   const [movies,setMovies] = useState([]);
+  const [ratedMovies, setRatedMovies] = useState([]);
   const [series,setSeries] = useState([]);
+  const [ratedSeries,setRatedSeries] = useState([]);
 
   useEffect(() => {
     axios({
@@ -16,7 +24,16 @@ const Explore = () => {
     })
     .then(function (response) {
       console.log(response.data.results)
-      setMovies(response.data.results.slice(0,6));
+      setMovies(response.data.results);
+    }); 
+
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/movie/top_rated?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+    })
+    .then(function (response) {
+      console.log(response.data.results)
+      setRatedMovies(response.data.results);
     }); 
 
     axios({
@@ -25,8 +42,45 @@ const Explore = () => {
       })
     .then(function (response) {
       console.log(response.data.results)
-      setSeries(response.data.results.slice(0,6));
+      setSeries(response.data.results);
     });
+
+    axios({
+      method: 'get',
+      url: 'https://api.themoviedb.org/3/tv/top_rated?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
+      })
+    .then(function (response) {
+      console.log(response.data.results)
+      setRatedSeries(response.data.results);
+    });
+
+    // upcoming
+
+   
+
+  // const options = {
+  //   method: 'GET',
+  //   url: 'https://api.themoviedb.org/3/movie/upcoming',
+  //   params: {language: 'en-US', page: '1'},
+  //   headers: {
+  //     accept: 'application/json',
+  //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24'
+  //   }
+  // };
+  
+  // axios
+  //   .request(options)
+  //   .then(function (response) {
+  //     console.log(response.data);
+  //     setUpcoming(response.data.results)
+  //   })
+  //   .catch(function (error) {
+  //     console.error(error);
+  //   });
+
+
+
+
   }, [])
 
   return (
@@ -46,6 +100,7 @@ const Explore = () => {
       <Link to="/popular-series">Popular Series</Link> 
       <Link to="/rated-series">Top Rated Series</Link>
     </div>
+
     {/* breadcrumb */}
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -61,102 +116,52 @@ const Explore = () => {
     {/* popular movies */}
     <h3 className="judul">Popular Movies</h3>
     <p> Top Popular movies pick by WatchWatch</p>
-    <div id="popular-movies" className="carousel slide popular-movies" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <div className="row">
 
-            {movies.map((item, i ) => {
+    <Swiper
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          468: {
+            slidesPerView: 2,
+            // spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            // spaceBetween: 10,
+          },
+          968: {
+            slidesPerView: 4,
+            // spaceBetween: 10,
+          },
+        }}
+    >
+
+
+      {movies.map((item, i ) => {
               return (
-                <div key={i} className="col-6 col-md-4 col-lg-2" >
-                  <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-                </div>
+                <SwiperSlide key={i} className='swiper-slide'>
+                <div className="card card-popular-movies"  >
+                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} />
+                  </div>
+
+                </SwiperSlide>
+             
               )
             })}
 
-         
+          <div className="tombol-r  text-end">
+           <SliderButtons  />
           </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular5.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular6.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular7.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular8.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular9.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular10.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular11.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular12.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular13.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular14.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular15.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular16.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular17.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular18.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular19.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular20.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular21.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/popular22.jpg"  />
-            </div>
-          </div>
-        </div>
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#popular-movies" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#popular-movies" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
+    </Swiper>
+
+
     {/* rated movies */}
-    <h3 className="judul">Top Rated Movies</h3>
+    <h3 className="judul mt-5">Top Rated Movies</h3>
     <p> Best Top Rated Movies of all time pick by WatchWatch</p>
-    <div id="rated-movies" className="carousel slide" data-bs-ride="carousel">
+    {/* <div id="rated-movies" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active">
           <div className="row">
@@ -233,92 +238,103 @@ const Explore = () => {
         <span className="carousel-control-next-icon" aria-hidden="true" />
         <span className="visually-hidden">Next</span>
       </button>
-    </div>
-    {/* popular Series */}
-    <h3 className="judul">Popular Series</h3>
-    <p> Top Popular series pick by WatchWatch</p>
-    <div id="popular-series" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series1.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series2.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series3.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series4.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series5.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series6.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series7.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series19.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series9.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series10.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series11.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series12.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series13.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series14.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series15.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series16.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series17.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/series18.jpg"  />
-            </div>
-          </div>
-        </div>
+    </div> */}
+
+<Swiper
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+      breakpoints={{
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        468: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+        968: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+      }}
+    >
+
+  
+     
+      {ratedMovies.map((item, i ) => {
+              return (
+                <SwiperSlide key={i} className='swiper-slide'>
+                <div className="card card-rated-movies"  >
+                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} />
+                  </div>
+
+                </SwiperSlide>
+             
+              )
+            })}
+    
+     <div className="tombol-r  text-end">
+           <SliderButtons  />
       </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#popular-series" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#popular-series" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
+
+    </Swiper>
+
+
+    {/* popular Series */}
+    <h3 className="judul mt-5">Popular Series</h3>
+    <p> Top Popular series pick by WatchWatch</p>
+
+<Swiper
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+      breakpoints={{
+        0: {
+          slidesPerView: 1,
+        },
+        468: {
+          slidesPerView: 2,
+          // spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 3,
+          // spaceBetween: 10,
+        },
+        968: {
+          slidesPerView: 4,
+          // spaceBetween: 10,
+        },
+      }}
+    >
+
+  
+     
+      {series.map((item, i ) => {
+              return (
+                <SwiperSlide key={i} className='swiper-slide'>
+                <div className="card card-popular-movies"  >
+                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} />
+                  </div>
+
+                </SwiperSlide>
+             
+              )
+            })}
+    
+     <div className="tombol-r  text-end">
+           <SliderButtons  />
+      </div>
+
+    </Swiper>
+
+
     {/* Rated Series */}
-    <h3 className="judul">Top Rated Series</h3>
+    <h3 className="judul mt-5">Top Rated Series</h3>
     <p> Best Top Rated series of all time pick by WatchWatch</p>
-    <div id="rated-series" className="carousel slide " data-bs-ride="carousel">
+    {/* <div id="rated-series" className="carousel slide " data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active">
           <div className="row">
@@ -395,7 +411,95 @@ const Explore = () => {
         <span className="carousel-control-next-icon" aria-hidden="true" />
         <span className="visually-hidden">Next</span>
       </button>
-    </div>
+    </div> */}
+
+<Swiper
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+      breakpoints={{
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        468: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+        968: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+      }}
+    >
+
+  
+     
+      {ratedSeries.map((item, i ) => {
+              return (
+                <SwiperSlide key={i} className='swiper-slide'>
+                <div className="card card-rated-movies"  >
+                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} />
+                  </div>
+
+                </SwiperSlide>
+             
+              )
+            })}
+    
+     <div className="tombol-r  text-end">
+           <SliderButtons  />
+      </div>
+
+    </Swiper>
+
+    {/* upcoming 
+
+    <Swiper
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          468: {
+            slidesPerView: 2,
+            // spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            // spaceBetween: 10,
+          },
+          968: {
+            slidesPerView: 4,
+            // spaceBetween: 10,
+          },
+        }}
+    >
+
+
+      {upcoming.map((item, i ) => {
+              return (
+                <SwiperSlide key={i} className='swiper-slide'>
+                <div className="card card-popular-movies"  >
+                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} />
+                  </div>
+
+                </SwiperSlide>
+             
+              )
+            })}
+
+          <div className="tombol-r  text-end">
+           <SliderButtons  />
+          </div>
+    </Swiper> */}
+
+
+
     {/* footer */}
     <div className="footer text-center">
       <div className="row">
@@ -427,3 +531,24 @@ const Explore = () => {
 }
 
 export default Explore
+
+const SliderButtons = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="r-button">
+      <button
+        onClick={() => swiper.slidePrev()}
+        className="btn   btn-sm btn-prv"
+      >
+        <i className="fa-solid fa-arrow-left  "></i>
+      </button>
+
+      <button
+        onClick={() => swiper.slideNext()}
+        className="btn  btn-sm btn-nxt"
+      >
+        <i className="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  );
+};

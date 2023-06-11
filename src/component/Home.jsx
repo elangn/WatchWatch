@@ -3,12 +3,20 @@ import '../style/home.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Outlet, Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useSwiper } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 
 
 const Home = () => {
 
   const [movies,setMovies] = useState([]);
   const [series,setSeries] = useState([]);
+  const [upcoming, setUpcoming] = useState([])
 
 
   useEffect(() => {
@@ -31,6 +39,27 @@ const Home = () => {
       console.log(response.data.results)
       setSeries(response.data.results.slice(0,4));
     });
+
+      const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/movie/upcoming',
+    params: {language: 'en-US', page: '1'},
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24'
+    }
+  };
+  
+  axios
+    .request(options)
+    .then(function (response) {
+      console.log(response.data);
+      setUpcoming(response.data.results)
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+
   }, [])
 
   return (
@@ -67,6 +96,57 @@ const Home = () => {
       <img src="img/playstore.jpeg"  /> 
       <img src="img/windows.jpg"  />
     </div>
+
+
+    {/* upcoming  */}
+
+    <div className="upcoming">
+    <h4 className='text-light'> Upcoming Movies</h4>
+
+  <Swiper
+    onSwiper={(swiper) => console.log(swiper)}
+    onSlideChange={() => console.log('slide change')}
+    breakpoints={{
+      0: {
+        slidesPerView: 1,
+      },
+      468: {
+        slidesPerView: 2,
+        // spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 3,
+        // spaceBetween: 10,
+      },
+      968: {
+        slidesPerView: 4,
+        // spaceBetween: 10,
+      },
+    }}
+>
+
+
+  {upcoming.map((item, i ) => {
+          return (
+            <SwiperSlide key={i} className='swiper-slide'>
+            <div className="card card-popular-movies"  >
+            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} />
+              </div>
+
+            </SwiperSlide>
+         
+          )
+        })}
+
+      <div className="tombol-r  text-end">
+       <SliderButtons  />
+      </div>
+  </Swiper>
+    </div>
+
+    
+
+
 
 
 
@@ -232,3 +312,25 @@ const Home = () => {
 }
 
 export default Home
+
+
+const SliderButtons = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="r-button">
+      <button
+        onClick={() => swiper.slidePrev()}
+        className="btn   btn-sm btn-prv"
+      >
+        <i className="fa-solid fa-arrow-left  "></i>
+      </button>
+
+      <button
+        onClick={() => swiper.slideNext()}
+        className="btn  btn-sm btn-nxt"
+      >
+        <i className="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  );
+};
