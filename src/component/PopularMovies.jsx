@@ -37,14 +37,11 @@ const PopularMovies = () => {
         </svg>
         Filter
       </p>
-      {/* <a href="popularMovies.html">Popular Movies</a>
-      <a href="ratedMovies.html">Top Rated Movies</a>
-      <a href="popularSeries.html">Popular Series </a>
-      <a href="ratedSeries.html">Top Rated Series</a> */}
-      <a><Link to="/popular-movies">Popular Movies</Link></a>
-      <a><Link to="/rated-movies">Top Rated Movies</Link></a>
-      <a><Link to="/popular-series">Popular Series</Link> </a>
-      <a><Link to="/rated-series">Top Rated Series</Link></a>
+     
+     <Link to="/popular-movies">Popular Movies</Link>
+     <Link to="/rated-movies">Top Rated Movies</Link>
+     <Link to="/popular-series">Popular Series</Link> 
+     <Link to="/rated-series">Top Rated Series</Link>
     </div>
 
     {/* breadcrumb */}
@@ -65,11 +62,17 @@ const PopularMovies = () => {
     <div className="popular-movies">
       <div className="row">
 
-      { movies.map((item) => {
+      { movies.map((item, i) => {
           return  ( 
-            <div className="col-6 col-md-4 col-lg-2">
-          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-        </div>
+           <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i}>
+              <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+              <div className="card-body ">
+              <p className='tittle '> {item.title} </p>  
+             
+              <p className='rating'>  <i class="fa-solid fa-star"></i> {item.vote_average}</p>
+              </div>
+            </div>
+
           )
         })}
         

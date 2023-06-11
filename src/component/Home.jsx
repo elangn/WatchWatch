@@ -175,7 +175,6 @@ const Home = () => {
                   <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text"> {item.original_title}</p>
-                    <p className="card-text"> <i className="fa-solid fa-star"></i> {item.vote_average}</p>
                   </div>
                 </div>
               </div>
@@ -262,7 +261,6 @@ const Home = () => {
                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                 <div className="card-body">
                 <p className="card-text"> {item.name}</p>
-                <p className="card-text"> <i className="fa-solid fa-star"></i> {item.vote_average}</p>
                 </div>
               </div>
             </div>
