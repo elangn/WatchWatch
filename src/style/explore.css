@@ -2,23 +2,14 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.body { 
+body { 
     background-color: black;
 }
-
-.dark-mode {
-    background-color: white
-}
-
-
-
-
 
 /* Filter */
 
 .filter { 
-    margin-top: -150px;
-    padding-top: 150px;
+    /* margin-bottom: 50px; */
 }
 
 .filter p { 
@@ -40,7 +31,7 @@
 /* breadcrumb */
 
 .breadcrumb { 
-    
+    margin-bottom: 50px;
 }
 
 /* popular movies */
@@ -72,6 +63,10 @@
     border: none;
 }
 
+.tombol-r { 
+    text-align: end;
+}
+
 
 /* rated movies */
 #rated-movies {
@@ -93,23 +88,6 @@
 }
 
 
-/* footer */
-
-
-.footer button { 
-    font-weight: bold;
-    margin-bottom: 25px;
-}
-
-.footer span  { 
-    color: white;
-    margin: 0 20px;
-    margin-bottom: 250x;
-}
-
-.footer  { 
-    margin-top: 100px;
-}
 
 
 /* button swipper */
@@ -131,43 +109,14 @@
     color: white;
 }
 
-@media (max-width : 992px){
-    .carousel-item img {
-        margin-bottom: 50px;
-        
-    }
 
-    .carousel .carousel-control-prev  { 
-        background-color: rgba(0, 0, 0, 0);
-        width: 50px;
-    }
-    
-    .carousel .carousel-control-next {
-        background-color: rgba(0, 0, 0, 0);
-        width: 50px;
-        color: yellow;
-    }
 
+
+@media (max-width : 468px){
     
+.tombol-r { 
+    text-align: center;
 }
 
-
-@media (max-width : 576px){
-    
-    .carousel-item  {
-        text-align: center;
-        
-    }
-    
-    .carousel-item img {
-        margin-bottom: 50px;
-        
-    }
-
-    .modal .modal-dialog { 
-        margin: 30px auto;
-    }
-    
-   
    
 }

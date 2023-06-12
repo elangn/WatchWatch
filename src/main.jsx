@@ -9,6 +9,7 @@ import RatedMovies from './component/RatedMovies'
 import PopularSeries from './component/PopularSeries'
 import RatedSeries from './component/RatedSeries'
 import Filter from './component/Filter'
+import Footer from './component/Footer'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
   <Navbar/>
   
   <Outlet/>
+  <Footer/>
   </>,
   errorElement: <p>Page Not Found</p> , 
   children: [

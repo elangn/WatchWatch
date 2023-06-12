@@ -91,9 +91,13 @@ const Navbar = () => {
     {/* navbar */}
     <nav className="navbar navbar-expand-lg ">
     <div className="container">
-      <a className="navbar-brand" href="#"> 
+      {/* <a className="navbar-brand" href="#"> 
         <img src="img/CEK.png" />
-      </a>
+      </a> */}
+
+      <Link to={"/"} className='navbar-brand'>
+        <img src="img/CEK.png" />
+      </Link>
       <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="tex">
           <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
