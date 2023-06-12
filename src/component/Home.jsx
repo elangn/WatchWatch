@@ -144,10 +144,6 @@ const Home = () => {
   </Swiper>
     </div>
 
-    
-
-
-
 
 
     {/* popular  movies*/}
@@ -281,6 +277,9 @@ const Home = () => {
         <button className="btn btn-outline-light btn-sm"> Subcsriptions </button>
       </div>
     </div>
+
+
+    
     {/* footer */}
     <div className="footer text-center">
       <div className="sosmed">

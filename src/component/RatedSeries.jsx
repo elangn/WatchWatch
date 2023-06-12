@@ -5,14 +5,11 @@ import { useEffect, useState } from 'react'
 
 const RatedSeries = () => {
 
-
-
   const [movies,setMovies] = useState([]);
   const baseUrl = 'https://api.themoviedb.org/3'
 
 
   useEffect(() => {
-   
     
     axios.get(`${baseUrl}/tv/top_rated?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1`)
     .then(function (response) {

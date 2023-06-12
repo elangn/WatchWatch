@@ -85,13 +85,11 @@ const Navbar = () => {
       
   }
 
-  
-
 
   return (
     <>
     {/* navbar */}
-        <nav className="navbar navbar-expand-lg ">
+    <nav className="navbar navbar-expand-lg ">
     <div className="container">
       <a className="navbar-brand" href="#"> 
         <img src="img/CEK.png" />

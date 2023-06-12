@@ -10,27 +10,9 @@
     background-color: white
 }
 
-/* navbar */ 
 
-.navbar .navmovies{ 
-    color: grey
-}
 
-.navbar .dropdown .nama { 
-    font-size: 16px;
-    background-color: transparent;
-    color: white;
-}
 
-.navbar .dropdown .nama2 { 
-   background-color: transparent;
-   
-}
-
-.navbar .dropdown .nama2:hover { 
-    background-color: transparent;
-    color: white;
- }
 
 /* alert */
 
@@ -57,76 +39,7 @@
 
 
 
-/* modal signin */
 
-
-.modal .modal-dialog {
-    width: 350px;
-}
-
-.modal .logo {
-    width: 200px;
-    
-}
-
-.modal .modal-content {     
-    padding: 20px;
-    background-image: url(img/charlesdeluvio-jtmwD4i4v1U-unsplash.jpg);
-    background-color: #121926;
-}
-
-.modal .modal-header {
-    border-bottom: none;
-}
-
-.modal .modal-header h1{ 
-    font-weight: bold;
-    color: white
-}
-
-.modal .modal-header p{ 
-    color: grey;
-    font-size: 12px;
-}
-
-.modal .modal-header label{ 
-    color: grey;
-    font-size: 14px;
-}
-
-.modal .email{ 
-    border-radius: 5px;
-    width: 250px;
-    font-size: 12px;
-    
-}
-
-.modal .passcode{ 
-    border-radius: 5px;
-    width: 250px;
-    font-size: 12px;
-    
-}
-
-.modal label img {
-    width: 15px;
-}
-
-.modal .btn { 
-    width: 250px;
-    /* background-color: rgb(163, 34, 34); */
-    background-color: #ffc107;
-    color: black;
-}
-
-.modal .btn:hover { 
-    
-    background-color: rgb(219, 190, 0);
-}
-
-.modal .btn img{ 
-    width: 15px;
-}
 
 
 /* jumbotron  */
@@ -364,15 +277,7 @@
         margin-bottom: 50px;
     }
 
-    .navbar-collapse {
-    position: absolute;
-    top : 50px;
-    }
 
-    .navbar button {
-        border: none;
-        margin-bottom: 10px;
-    }
 
 .carousel .carousel-caption img { 
     opacity: 1;

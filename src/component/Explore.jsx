@@ -54,33 +54,7 @@ const Explore = () => {
       setRatedSeries(response.data.results);
     });
 
-    // upcoming
-
    
-
-  // const options = {
-  //   method: 'GET',
-  //   url: 'https://api.themoviedb.org/3/movie/upcoming',
-  //   params: {language: 'en-US', page: '1'},
-  //   headers: {
-  //     accept: 'application/json',
-  //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24'
-  //   }
-  // };
-  
-  // axios
-  //   .request(options)
-  //   .then(function (response) {
-  //     console.log(response.data);
-  //     setUpcoming(response.data.results)
-  //   })
-  //   .catch(function (error) {
-  //     console.error(error);
-  //   });
-
-
-
-
   }, [])
 
   return (
@@ -161,84 +135,7 @@ const Explore = () => {
     {/* rated movies */}
     <h3 className="judul mt-5">Top Rated Movies</h3>
     <p> Best Top Rated Movies of all time pick by WatchWatch</p>
-    {/* <div id="rated-movies" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated1.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated2.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated3.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated4.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated5.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated6.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated7.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated8.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated9.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated10.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated11.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated12.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated13.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated14.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated15.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated16.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated17.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/rated18.jpg"  />
-            </div>
-          </div>
-        </div>
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#rated-movies" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#rated-movies" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div> */}
+   
 
 <Swiper
       onSwiper={(swiper) => console.log(swiper)}
@@ -334,84 +231,7 @@ const Explore = () => {
     {/* Rated Series */}
     <h3 className="judul mt-5">Top Rated Series</h3>
     <p> Best Top Rated series of all time pick by WatchWatch</p>
-    {/* <div id="rated-series" className="carousel slide " data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr1.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr2.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr3.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr4.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr5.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr6.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr7.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr8.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr9.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr10.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr11.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr12.jpg"  />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div className="row">
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr13.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr14.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr15.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr16.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr17.jpg"  />
-            </div>
-            <div className="col-6 col-md-4 col-lg-2">
-              <img src="img/sr18.jpg"  />
-            </div>
-          </div>
-        </div>
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#rated-series" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#rated-series" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div> */}
+   
 
 <Swiper
       onSwiper={(swiper) => console.log(swiper)}
@@ -456,48 +276,7 @@ const Explore = () => {
 
     </Swiper>
 
-    {/* upcoming 
-
-    <Swiper
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          468: {
-            slidesPerView: 2,
-            // spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 3,
-            // spaceBetween: 10,
-          },
-          968: {
-            slidesPerView: 4,
-            // spaceBetween: 10,
-          },
-        }}
-    >
-
-
-      {upcoming.map((item, i ) => {
-              return (
-                <SwiperSlide key={i} className='swiper-slide'>
-                <div className="card card-popular-movies"  >
-                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} />
-                  </div>
-
-                </SwiperSlide>
-             
-              )
-            })}
-
-          <div className="tombol-r  text-end">
-           <SliderButtons  />
-          </div>
-    </Swiper> */}
-
+   
 
 
     {/* footer */}

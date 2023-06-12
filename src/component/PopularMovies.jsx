@@ -69,7 +69,7 @@ const PopularMovies = () => {
               <div className="card-body ">
               <p className='tittle '> {item.title} </p>  
              
-              <p className='rating'>  <i class="fa-solid fa-star"></i> {item.vote_average}</p>
+              <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
               </div>
             </div>
 
