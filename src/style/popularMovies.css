@@ -9,25 +9,7 @@ body {
 
 
 
-/* Filter */
 
-
-
-.filter p { 
-    color: grey;
-}
-
-.filter a {
-    color: grey;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-}
-
-.filter a:hover {
-    color: #ffc107
-    
-}
 
 /* popular-movies */
 .popular-movies .card img {
@@ -61,6 +43,11 @@ body {
 
 .popular-movies  .card  .rating i { 
     color: #ffc107;
+}
+
+/* pagination */
+.Page  ul li a{ 
+    background-color: transparent;
 }
 
 

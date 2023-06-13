@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Filter from './Filter';
 
 const Explore = () => {
 
@@ -61,22 +62,12 @@ const Explore = () => {
     <div className='body'>
 
   <div className="container">
-    {/* Filter */}
-    <div className="filter d-flex tes">
-      <p className="me-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-filter" viewBox="0 0 16 16">
-          <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-        </svg>
-        Filter
-      </p>
-      <Link to="/popular-movies">Popular Movies</Link>
-     <Link to="/rated-movies">Top Rated Movies</Link>
-      <Link to="/popular-series">Popular Series</Link> 
-      <Link to="/rated-series">Top Rated Series</Link>
-    </div>
 
-    {/* breadcrumb */}
-    <nav aria-label="breadcrumb">
+
+    <Filter/>
+
+         {/* breadcrumb */}
+         <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
         <li className="breadcrumb-item active" aria-current="page">
           <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-arrow-return-right" viewBox="0 0 16 16">
@@ -84,6 +75,7 @@ const Explore = () => {
           </svg>
           Explore
         </li>
+        
       </ol>
     </nav>
 

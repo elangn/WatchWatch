@@ -1,7 +1,11 @@
 import React from 'react'
+import { Outlet, Link } from "react-router-dom";
+import '../style/filter.css'
 
 const Filter = () => {
   return (
+    <>
+     {/* Filter */}
     <div className="filter d-flex tes">
       <p className="me-2">
         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-filter" viewBox="0 0 16 16">
@@ -9,11 +13,14 @@ const Filter = () => {
         </svg>
         Filter
       </p>
-      <a href="popularMovies.html"><Link to="/popular-movies">Popular Movies</Link></a>
-      <a href="ratedMovies.html"><Link to="/rated-movies">Top Rated Movies</Link></a>
-      <a href="popularSeries.html"><Link to="/popular-series">Popular Series</Link> </a>
-      <a href="ratedSeries.html"><Link to="/rated-series">Top Rated Series</Link></a>
+      <Link to="/popular-movies">Popular Movies</Link>
+     <Link to="/rated-movies">Top Rated Movies</Link>
+      <Link to="/popular-series">Popular Series</Link> 
+      <Link to="/rated-series">Top Rated Series</Link>
     </div>
+
+ 
+    </>
   )
 }
 

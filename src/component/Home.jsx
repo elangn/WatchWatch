@@ -20,6 +20,8 @@ const Home = () => {
 
 
   useEffect(() => {
+
+    // api poluar movie 
     axios({
       method: 'get',
       url: 'https://api.themoviedb.org/3/movie/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
@@ -31,6 +33,9 @@ const Home = () => {
       setMovies(response.data.results.slice(0,4));
     }); 
 
+
+    // api popular series
+
     axios({
       method: 'get',
       url: 'https://api.themoviedb.org/3/tv/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1',
@@ -39,6 +44,9 @@ const Home = () => {
       console.log(response.data.results)
       setSeries(response.data.results.slice(0,4));
     });
+
+
+    // api upcoming movies
 
       const options = {
     method: 'GET',
@@ -59,6 +67,9 @@ const Home = () => {
     .catch(function (error) {
       console.error(error);
     });
+
+ 
+
 
   }, [])
 
