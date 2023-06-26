@@ -35,7 +35,7 @@ const Navbar = () => {
       }
     })
     .then(function (response1) {
-      alert('login sukses');
+      
         axios({
           method: 'post',
           url: 'https://api.themoviedb.org/3/authentication/token/validate_with_login', 
@@ -72,16 +72,16 @@ const Navbar = () => {
                   }
                 })
                   .then(function (response4) {
+                    alert('login sukses');
                     localStorage.setItem('account', JSON.stringify(response4.data));
                     console.log(response4);
                     window.location.reload();
                   });
               });
           });
-      // .catch(error => { 
-      //   alert('cek username / password anda ')
-      // })
+      
       })
+      
       
   }
 
@@ -180,7 +180,7 @@ const Navbar = () => {
  
             </div>
 
-            <p>dont have account ? <a href='#'> Signup </a></p>
+            <p>dont have account ? <a href='https://www.themoviedb.org/signup'> Signup </a></p>
 
             <button onClick={handleLogin} type="submit" value='submit' className="btn  btn-sm "> <img src="img/login.png" /> Sign in</button>
           </form>
