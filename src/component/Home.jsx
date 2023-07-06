@@ -76,6 +76,7 @@ const Home = () => {
   return (
     <>
         <div className='body'>
+
   {/* alert */}
   <div className=" alert alert-warning alert-dismissible fade show" role="alert">
     <img src="img/waving-hand.png"  />
@@ -138,6 +139,9 @@ const Home = () => {
 >
 
 
+
+
+
   {upcoming.map((item, i ) => {
           return (
             <SwiperSlide key={i} className='swiper-slide'>
@@ -178,11 +182,39 @@ const Home = () => {
         { movies.map((item, i) => {
           return  ( 
             <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6">
-              <div className="card film">
+              <div className="card film" data-bs-toggle="modal" data-bs-target={`#movies${item.id}`}>
                 <div className="box">
                   <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <p className="card-text"> {item.original_title}</p>
+                  </div>
+                </div>
+              </div>
+
+               {/* Modal */}
+              <div className="modal fade " id={`movies${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog w-100">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <div className="row">
+                        <div className="col-4">
+                            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." /> 
+                            
+                        </div>
+
+                        <div className="col-8">
+                        <h4 className='text-light justify-align-content-between'>  {item.title}</h4>
+                        <div className='d-flex w-100  justify-content-between'>
+                          <p className=''>  {item.release_date}</p>
+                          <p className='text-warning'> <i className="fa-solid fa-star"></i> {item.vote_average}  </p>
+                        </div>
+                        <p> {item.overview} </p>
+                        </div>
+                      </div>
+                    
+                      </div>
+                    
+                    
                   </div>
                 </div>
               </div>
@@ -263,15 +295,43 @@ const Home = () => {
 
         {series.map((item, i) => {
           return (
-            <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6 ">
-            <div className="card">
-              <div className="box">
-                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-                <div className="card-body">
-                <p className="card-text"> {item.name}</p>
+          <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6 ">
+              <div className="card" data-bs-toggle="modal" data-bs-target={`#series${item.id}`}>
+                <div className="box">
+                  <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                  <p className="card-text"> {item.name}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+
+               {/* Modal */}
+               <div className="modal fade " id={`series${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog w-100">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <div className="row">
+                        <div className="col-4">
+                            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." /> 
+                            
+                        </div>
+
+                        <div className="col-8">
+                        <h4 className='text-light justify-align-content-between'>  {item.name}</h4>
+                        <div className='d-flex w-100  justify-content-between'>
+                          <p className=''>  {item.first_air_date}</p>
+                          <p className='text-warning'> <i className="fa-solid fa-star"></i> {item.vote_average}  </p>
+                        </div>
+                        <p> {item.overview} </p>
+                        </div>
+                      </div>
+                    
+                      </div>
+                    
+                    
+                  </div>
+                </div>
+              </div>
           </div>
           )
         })}

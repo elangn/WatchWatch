@@ -8,9 +8,7 @@ import Filter from './Filter';
 const PopularMovies = () => {
 
   const [movies,setMovies] = useState([]);
-  const [movies2,setMovies2] = useState([]);
-  const [movies3,setMovies3] = useState([]);
-  const [movies4,setMovies4] = useState([]);
+  // const [movies2,setMovies2] = useState([]);
   
 
 
@@ -25,73 +23,25 @@ const PopularMovies = () => {
       setMovies(response.data.results);
     }); 
 
-    const options = {
-      method: 'GET',
-      url: 'https://api.themoviedb.org/3/movie/popular',
-      params: {language: 'en-US', page: '2'},
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24'
-      }
-    };
+    // const options = {
+    //   method: 'GET',
+    //   url: 'https://api.themoviedb.org/3/movie/popular',
+    //   params: {language: 'en-US', page: '2'},
+    //   headers: {
+    //     accept: 'application/json',
+    //     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24'
+    //   }
+    // };
     
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
-        setMovies2(response.data.results)
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-
-
-      const options2 = {
-        method: 'GET',
-        url: 'https://api.themoviedb.org/3/movie/popular',
-        params: {language: 'en-US', page: '3'},
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24'
-        }
-      };
-      
-      axios
-        .request(options2)
-        .then(function (response) {
-          console.log(response.data);
-          setMovies3(response.data.results)
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-
-
-        const options3 = {
-          method: 'GET',
-          url: 'https://api.themoviedb.org/3/movie/popular',
-          params: {language: 'en-US', page: '3'},
-          headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24'
-          }
-        };
-        
-        axios
-          .request(options3)
-          .then(function (response) {
-            console.log(response.data);
-            setMovies4(response.data.results)
-          })
-          .catch(function (error) {
-            console.error(error);
-          });
-
-
-          
-          
-  
-
+    // axios
+    //   .request(options)
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //     setMovies2(response.data.results)
+    //   })
+    //   .catch(function (error) {
+    //     console.error(error);
+    //   });
 
   }, [])
 
@@ -101,7 +51,7 @@ const PopularMovies = () => {
     <div className='body'>
 
   <div className="container">
-    
+
     <Filter/>
 
      {/* breadcrumb */}
@@ -113,7 +63,7 @@ const PopularMovies = () => {
           </svg>
           Explore
         </li>
-        <li class="breadcrumb-item active" aria-current="page">Popular Movies</li>
+        <li className="breadcrumb-item active" aria-current="page">Popular Movies</li>
         
       </ol>
     </nav>
@@ -125,23 +75,50 @@ const PopularMovies = () => {
 
       { movies.map((item, i) => {
           return  ( 
-           <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i}>
+           <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i} data-bs-toggle="modal" data-bs-target={`#popular${item.id}`}>
               <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
               <div className="card-body ">
               <p className='tittle '> {item.title} </p>  
              
               <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
               </div>
+
+
+            {/* Modal */}
+            <div className="modal fade " id={`popular${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog w-100">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <div className="row">
+                      <div className="col-4">
+                          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top w-100" alt="..." /> 
+                          
+                      </div>
+
+                      <div className="col-8">
+                      <h4 className='text-light justify-align-content-between'>  {item.title}</h4>
+                      <div className='d-flex w-100  justify-content-between'>
+                        <p className=''>  {item.release_date}</p>
+                        <p className='text-warning'> <i className="fa-solid fa-star"></i> {item.vote_average}  </p>
+                      </div>
+                      <p> {item.overview} </p>
+                      </div>
+                    </div>
+                   
+                    </div>
+                  
+                  
+                </div>
+              </div>
+            </div>
             </div>
 
           )
         })}
 
-
-        <br /><br />
 
         
-      { movies2.map((item, i) => {
+      {/* { movies2.map((item, i) => {
           return  ( 
            <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i}>
               <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
@@ -153,36 +130,8 @@ const PopularMovies = () => {
             </div>
 
           )
-        })}
+        })} */}
 
-        { movies3.map((item, i) => {
-          return  ( 
-           <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i}>
-              <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-              <div className="card-body ">
-              <p className='tittle '> {item.title} </p>  
-             
-              <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
-              </div>
-            </div>
-
-          )
-        })}
-
-
-        { movies4.map((item, i) => {
-          return  ( 
-           <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i}>
-              <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-              <div className="card-body ">
-              <p className='tittle '> {item.title} </p>  
-             
-              <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
-              </div>
-            </div>
-
-          )
-        })}
         
       </div>
     </div>
