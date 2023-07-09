@@ -75,12 +75,20 @@ const PopularMovies = () => {
 
       { movies.map((item, i) => {
           return  ( 
-           <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i} data-bs-toggle="modal" data-bs-target={`#popular${item.id}`}>
+          <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i} >
+
               <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+
               <div className="card-body ">
-                <p className='tittle '> {item.title} </p>  
-                <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
+                {/*  */}
+                <button className='btn btn-sm btn-success mb-2' data-bs-toggle="modal" data-bs-target={`#popular${item.id}`}> Details</button>
+                <button className='btn btn-sm btn-warning '> Watch Trailer</button>
+                
               </div>
+
+              <p className='tittle '> {item.title} </p>  
+              <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
+
 
 
             {/* Modal */}
@@ -110,7 +118,7 @@ const PopularMovies = () => {
                 </div>
               </div>
             </div>
-            </div>
+          </div>
 
           )
         })}

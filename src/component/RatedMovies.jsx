@@ -74,22 +74,68 @@ const RatedMovies = () => {
 
            
            
-           <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i} data-bs-toggle="modal" data-bs-target={`#rated${item.id}`} >
-              <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-              <div className="card-body ">
-              <p className='tittle '> {item.title} </p>  
+          //  <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i} data-bs-toggle="modal" data-bs-target={`#rated${item.id}`} >
+          //     <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+          //     <div className="card-body ">
+          //     <p className='tittle '> {item.title} </p>  
              
-              <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
+          //     <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
+          //     </div>
+
+          //     {/* Modal */}
+          //   <div className="modal fade " id={`rated${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+          //     <div className="modal-dialog w-100">
+          //       <div className="modal-content">
+          //         <div className="modal-header">
+          //           <div className="row">
+          //             <div className="col-sm-4 mb-4 text-center">
+          //                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." /> 
+          //             </div>
+
+          //             <div className="col-sm-8">
+          //             <h4 className='text-light justify-align-content-between'>  {item.title}</h4>
+          //             <div className='d-flex w-100  justify-content-between'>
+          //               <p className=''>  {item.release_date}</p>
+          //               <p className='text-warning'> <i className="fa-solid fa-star"></i> {item.vote_average}  </p>
+          //             </div>
+          //             <p> {item.overview} </p>
+          //             </div>
+          //           </div>
+                   
+          //           </div>
+                  
+                  
+          //       </div>
+          //     </div>
+          //   </div>
+
+          //   </div>
+
+          <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i} >
+
+              <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
+
+              <div className="card-body ">
+                {/*  */}
+                <button className='btn btn-sm btn-success mb-2' data-bs-toggle="modal" data-bs-target={`#popular${item.id}`}> Details</button>
+                <button className='btn btn-sm btn-warning '> Watch Trailer</button>
+                
               </div>
 
-              {/* Modal */}
-            <div className="modal fade " id={`rated${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <p className='tittle '> {item.title} </p>  
+              <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
+
+
+
+            {/* Modal */}
+            <div className="modal fade " id={`popular${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog w-100">
                 <div className="modal-content">
                   <div className="modal-header">
                     <div className="row">
                       <div className="col-sm-4 mb-4 text-center">
-                          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." /> 
+                          <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top w-100" alt="..." /> 
+                          
                       </div>
 
                       <div className="col-sm-8">
@@ -108,8 +154,7 @@ const RatedMovies = () => {
                 </div>
               </div>
             </div>
-
-            </div>
+          </div>
 
             
 

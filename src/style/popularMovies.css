@@ -7,10 +7,6 @@ body {
 }
 
 
-
-
-
-
 /* popular-movies */
 .popular-movies .card img {
     width: 100%;
@@ -24,10 +20,30 @@ body {
 .popular-movies  .card  { 
     margin-bottom: 25px;
     gap: 10px;
+    overflow: hidden;
+}
+
+.popular-movies  .card:hover .card-body { 
+    right: 0;
 }
 
 .popular-movies  .card .tittle { 
     color: white;
+    text-align: center;
+}
+.popular-movies  .card-body { 
+    transition: 0.5s;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color:  #030303c3;
+    
 }
 
 .popular-movies  .card .rating { 
@@ -49,9 +65,6 @@ body {
 .Page  ul li a{ 
     background-color: transparent;
 }
-
-
-
 
 
 
