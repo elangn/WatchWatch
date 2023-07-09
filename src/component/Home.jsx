@@ -28,8 +28,6 @@ const Home = () => {
     })
     .then(function (response) {
       console.log(response)
-      // const cuma4 = response.data.results.slice(0,4);
-      // console.log(cuma4);
       setMovies(response.data.results.slice(0,4));
     }); 
 
@@ -138,11 +136,6 @@ const Home = () => {
     }}
 >
 
-  
-
-
-
-
 
   {upcoming.map((item, i ) => {
           return (
@@ -184,14 +177,19 @@ const Home = () => {
         { movies.map((item, i) => {
           return  ( 
             <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6">
-              <div className="card film" data-bs-toggle="modal" data-bs-target={`#movies${item.id}`}>
-                <div className="box">
+
+              <div className="card film" >
+
+                <div className="box mb-0">
                   <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                   <div className="card-body">
-                    <p className="card-text"> {item.original_title}</p>
+                    <button className='btn btn-sm btn-success ' data-bs-toggle="modal" data-bs-target={`#movies${item.id}`}> Details</button>
+                    <button className='btn btn-sm btn-warning mt-2'> Watch Trailer</button>
                   </div>
+                 
                 </div>
               </div>
+              <p className='fw-bold text-light  text-center mt-0 mt-3 mb-5'> {item.original_title}</p>
 
                {/* Modal */}
               <div className="modal fade " id={`movies${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -201,7 +199,6 @@ const Home = () => {
                       <div className="row">
                         <div className="col-sm-4 text-center mb-4">
                             <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." /> 
-                            
                         </div>
 
                         <div className="col-sm-8">
@@ -211,7 +208,12 @@ const Home = () => {
                           <p className='text-warning'> <i className="fa-solid fa-star"></i> {item.vote_average}  </p>
                         </div>
                         <p> {item.overview} </p>
+                        <Link to="/popular-movies"> TES</Link>
+                      
                         </div>
+
+                         
+
                       </div>
                     
                       </div>
@@ -220,6 +222,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           )
         })}
@@ -298,14 +301,18 @@ const Home = () => {
         {series.map((item, i) => {
           return (
           <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6 ">
-              <div className="card" data-bs-toggle="modal" data-bs-target={`#series${item.id}`}>
-                <div className="box">
+              <div className="card" >
+                <div className="box mb-0">
                   <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
                   <div className="card-body">
-                  <p className="card-text"> {item.name}</p>
+                    <button className='btn btn-sm btn-success' data-bs-toggle="modal" data-bs-target={`#series${item.id}`}> Details</button>
+
+                    <button className='btn btn-sm btn-warning mt-2' > Watch Trailer</button>
+                  
                   </div>
                 </div>
               </div>
+              
 
                {/* Modal */}
                <div className="modal fade " id={`series${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -334,6 +341,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+              <p className="fw-bold mt-3 text-light text-center mb-5"> {item.name}</p>
           </div>
           )
         })}

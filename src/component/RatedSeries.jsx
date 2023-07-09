@@ -61,7 +61,7 @@ const RatedSeries = () => {
           </svg>
           Explore
         </li>
-        <li class="breadcrumb-item active" aria-current="page">Top Rated Series</li>
+        <li className="breadcrumb-item active" aria-current="page">Top Rated Series</li>
         
       </ol>
     </nav>
