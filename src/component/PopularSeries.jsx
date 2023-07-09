@@ -85,12 +85,12 @@ const PopularSeries = () => {
                   <div className="modal-content">
                     <div className="modal-header">
                       <div className="row">
-                        <div className="col-4">
+                        <div className="col-sm-4 mb-4 text-center">
                             <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." /> 
                           
                         </div>
 
-                        <div className="col-8">
+                        <div className="col-sm-8">
                         <h4 className='text-light justify-align-content-between'>  {item.name}</h4>
                         <div className='d-flex w-100  justify-content-between'>
                           <p className=''>  {item.first_air_date}</p>
