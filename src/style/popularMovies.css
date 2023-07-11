@@ -1,79 +1,71 @@
-{
-    font-family: 'Roboto', sans-serif;
+ {
+  font-family: "Roboto", sans-serif;
 }
 
-body { 
-    background-color: black;
+body {
+  background-color: black;
 }
-
 
 /* popular-movies */
 .popular-movies .card img {
-    width: 100%;
-    transition: 0.3s;
+  width: 100%;
+  transition: 0.3s;
 }
 
 .popular-movies img:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
-.popular-movies  .card  { 
-    margin-bottom: 25px;
-    gap: 10px;
-    overflow: hidden;
+.popular-movies .card {
+  margin-bottom: 25px;
+  gap: 10px;
+  overflow: hidden;
 }
 
-.popular-movies  .card:hover .card-body { 
-    right: 0;
+.popular-movies .card:hover .card-body {
+  right: 0;
 }
 
-.popular-movies  .card .tittle { 
-    color: white;
-    text-align: center;
+.popular-movies .card .tittle {
+  color: white;
+  text-align: center;
 }
-.popular-movies  .card-body { 
-    transition: 0.5s;
-    position: absolute;
-    top: 0;
-    right: -100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color:  #030303c3;
-    
-}
-
-.popular-movies  .card .rating { 
-    position: absolute;
-    top: 3px;
-    left: 15px;
-    padding: 0 5px;
-    background-color: rgba(0, 0, 0, 0.715);
-    color: white;
-    font-weight: bold;
-    font-size: 12px;
+.popular-movies .card-body {
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #030303c3;
 }
 
-.popular-movies  .card  .rating i { 
-    color: #ffc107;
+.popular-movies .card .rating {
+  position: absolute;
+  top: 3px;
+  left: 15px;
+  padding: 0 5px;
+  background-color: rgba(0, 0, 0, 0.715);
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.popular-movies .card .rating i {
+  color: #ffc107;
 }
 
 /* pagination */
-.Page  ul li a{ 
-    background-color: transparent;
+.Page ul li a {
+  background-color: transparent;
 }
 
-
-
-@media (max-width : 576px){
-    
-    .modal .modal-dialog { 
-        margin: 30px auto;
-    }
-    
-   
-   
+@media (max-width: 576px) {
+  .modal .modal-dialog {
+    margin: 30px auto;
+  }
 }

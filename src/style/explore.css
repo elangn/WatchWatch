@@ -1,96 +1,82 @@
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-body { 
-    background-color: black;
+body {
+  background-color: black;
 }
-
-
 
 /* popular movies */
 #popular-movies {
-    margin-bottom: 70px;
+  margin-bottom: 70px;
 }
-#popular-movies img{
-    transition: 0.5s;
-    
+#popular-movies img {
+  transition: 0.5s;
 }
 
-#popular-movies img:hover{
-    /* opacity: 0.5; */
-    transform: translateY(1.5);
-    
+#popular-movies img:hover {
+  /* opacity: 0.5; */
+  transform: translateY(1.5);
 }
 
 .judul {
-    font-size: 18px;
-    font-weight: bold;
-    border-left: 3px solid yellow;
-    padding-left: 10px;
-    margin-bottom: 10px;
-    color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-left: 3px solid yellow;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: white;
 }
 
-.card-popular-movies  { 
-    width: 200px;
-    border: none;
+.card-popular-movies {
+  width: 200px;
+  border: none;
 }
 
-.tombol-r { 
-    text-align: end;
+.tombol-r {
+  text-align: end;
 }
-
 
 /* rated movies */
 #rated-movies {
-    margin-bottom: 70px;
+  margin-bottom: 70px;
 }
 
-.card-rated-movies { 
-    border: none;
+.card-rated-movies {
+  border: none;
 }
 
 /* popular series */
-#popular-series { 
-    margin-bottom: 70px;
+#popular-series {
+  margin-bottom: 70px;
 }
 
 /* rated series */
-#rated-series{
-    margin-bottom: 100px;
+#rated-series {
+  margin-bottom: 100px;
 }
-
-
-
 
 /* button swipper */
 
-.r-button { 
-    margin-top: 20px;
+.r-button {
+  margin-top: 20px;
 }
 
-.btn-prv { 
-    /* background-color: grey; */
-    border: 1px solid rgb(255, 255, 255);
-    color: white;
-    margin-right: 20px;
+.btn-prv {
+  /* background-color: grey; */
+  border: 1px solid rgb(255, 255, 255);
+  color: white;
+  margin-right: 20px;
 }
 
-.btn-nxt { 
-    /* background-color: grey; */
-    border: 1px solid rgb(255, 255, 255);
-    color: white;
+.btn-nxt {
+  /* background-color: grey; */
+  border: 1px solid rgb(255, 255, 255);
+  color: white;
 }
 
-
-
-
-@media (max-width : 468px){
-    
-.tombol-r { 
+@media (max-width: 468px) {
+  .tombol-r {
     text-align: center;
-}
-
-   
+  }
 }

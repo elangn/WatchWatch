@@ -1,175 +1,162 @@
 /* navbar */
-.navbar { 
-    color: white;
-    z-index: 1;
+.navbar {
+  color: white;
+  z-index: 1;
 }
 
 .navbar-brand img {
-    width: 100px;
+  width: 100px;
 }
 
-.navbar-brand span{
-    font-size: 24px;
-    font-weight: bold;
-    color: rgb(222, 106, 4);
+.navbar-brand span {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(222, 106, 4);
 }
-
 
 .navbar-collapse ul li {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .navbar-collapse button {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
-.navbar-collapse ul li a { 
-    color: rgb(154, 153, 153);
-    transition: 0.5s;
-    text-decoration: none;
-    
+.navbar-collapse ul li a {
+  color: rgb(154, 153, 153);
+  transition: 0.5s;
+  text-decoration: none;
 }
 
-.navbar-collapse ul li a:hover { 
-    color: #ffc107
+.navbar-collapse ul li a:hover {
+  color: #ffc107;
 }
 
 .navbar .tex svg {
-    color: white;
-   font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
 
 .navbar button {
-    border-radius: 30px;
-    border: none;
+  border-radius: 30px;
+  border: none;
 }
 
 .navbar button:hover {
-    opacity: 0.5; 
+  opacity: 0.5;
 }
 
-.navbar button svg{
-    color: black;
+.navbar button svg {
+  color: black;
 }
 
-.navbar button span{
-    border: none;
-    font-weight: bold;
-    color: black;
+.navbar button span {
+  border: none;
+  font-weight: bold;
+  color: black;
 }
 
-.navbar button:nth-child(2)  { 
-    background-color: transparent;
+.navbar button:nth-child(2) {
+  background-color: transparent;
 }
 
-
-.navbar button i { 
-    color: grey;
+.navbar button i {
+  color: grey;
 }
 
- .navbar .navmovies{ 
-    color: grey
+.navbar .navmovies {
+  color: grey;
 }
 
-.navbar .dropdown .nama { 
-    font-size: 16px;
-    background-color: transparent;
-    color: white;
+.navbar .dropdown .nama {
+  font-size: 16px;
+  background-color: transparent;
+  color: white;
 }
 
-.navbar .dropdown .nama2 { 
-   background-color: transparent;
-   
+.navbar .dropdown .nama2 {
+  background-color: transparent;
 }
 
-.navbar .dropdown .nama2:hover { 
-    background-color: transparent;
-    color: white;
- }
+.navbar .dropdown .nama2:hover {
+  background-color: transparent;
+  color: white;
+}
 
-
- /* modal signin */
-
+/* modal signin */
 
 .modal .modal-dialog {
-    width: 350px;
+  width: 350px;
 }
 
 .modal .logo {
-    width: 200px;
-    
+  width: 200px;
 }
 
-.modal .modal-content {     
-    padding: 20px;
-    background-image: url(img/charlesdeluvio-jtmwD4i4v1U-unsplash.jpg);
-    background-color: #121926;
+.modal .modal-content {
+  padding: 20px;
+  background-image: url(img/charlesdeluvio-jtmwD4i4v1U-unsplash.jpg);
+  background-color: #121926;
 }
 
 .modal .modal-header {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-.modal .modal-header h1{ 
-    font-weight: bold;
-    color: white
+.modal .modal-header h1 {
+  font-weight: bold;
+  color: white;
 }
 
-.modal .modal-header p{ 
-    color: grey;
-    font-size: 12px;
+.modal .modal-header p {
+  color: grey;
+  font-size: 12px;
 }
 
-.modal .modal-header label{ 
-    color: grey;
-    font-size: 14px;
+.modal .modal-header label {
+  color: grey;
+  font-size: 14px;
 }
 
-.modal .email{ 
-    border-radius: 5px;
-    width: 250px;
-    font-size: 12px;
-    
+.modal .email {
+  border-radius: 5px;
+  width: 250px;
+  font-size: 12px;
 }
 
-.modal .passcode{ 
-    border-radius: 5px;
-    width: 250px;
-    font-size: 12px;
-    
+.modal .passcode {
+  border-radius: 5px;
+  width: 250px;
+  font-size: 12px;
 }
 
 .modal label img {
-    width: 15px;
+  width: 15px;
 }
 
-.modal .btn { 
-    width: 250px;
-    /* background-color: rgb(163, 34, 34); */
-    background-color: #ffc107;
-    color: black;
+.modal .btn {
+  width: 250px;
+  /* background-color: rgb(163, 34, 34); */
+  background-color: #ffc107;
+  color: black;
 }
 
-.modal .btn:hover { 
-    
-    background-color: rgb(219, 190, 0);
+.modal .btn:hover {
+  background-color: rgb(219, 190, 0);
 }
 
-.modal .btn img{ 
-    width: 15px;
+.modal .btn img {
+  width: 15px;
 }
 
- @media (max-width:992px){
-
-    .navbar-collapse {
+@media (max-width: 992px) {
+  .navbar-collapse {
     /* position: absolute; */
-    top : 50px;
-    }
+    top: 50px;
+  }
 
-    .navbar button {
-        border: none;
-        margin-bottom: 10px;
-    }
-
-
+  .navbar button {
+    border: none;
+    margin-bottom: 10px;
+  }
 }

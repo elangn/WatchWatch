@@ -1,407 +1,367 @@
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    background-color: black;
+  background-color: black;
 }
-
-
 
 /* alert */
 
 .body .alert {
-    position: fixed;
-    z-index: 999;
-    right: 20px;
-    bottom: 0  ;
-    padding: 15px;
-    width: 300px;
-    background-color: rgb(31, 31, 31);
-    border: none;
-    opacity: 0.7;
+  position: fixed;
+  z-index: 999;
+  right: 20px;
+  bottom: 0;
+  padding: 15px;
+  width: 300px;
+  background-color: rgb(31, 31, 31);
+  border: none;
+  opacity: 0.7;
 }
 
-.body .alert  img{
-    width: 25px;
+.body .alert img {
+  width: 25px;
 }
 
-.body .alert  span{
-    font-size: 14px;
-    color: white
+.body .alert span {
+  font-size: 14px;
+  color: white;
 }
-
-
-
 
 /* jumbotron  */
-.jumbotron { 
-    z-index: -99;
-    background-image: linear-gradient( rgba(0,0,0,0.5) , rgba(0,0,0, 1)), url("../../public/img/jumbotron-bg.jpg");
+.jumbotron {
+  z-index: -99;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),
+    url("../../public/img/jumbotron-bg.jpg");
 
-    /*  url("../public/img/jumbotron-bg.jpg"); */
-    margin-top: -100px;
-    height: 650px;
-    
+  /*  url("../public/img/jumbotron-bg.jpg"); */
+  margin-top: -100px;
+  height: 650px;
 }
 
 .jumbotron-box h2 {
-    color: white;
-    font-size: 42px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 50px;
+  color: white;
+  font-size: 42px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 50px;
 }
 
 .jumbotron-box p {
-    color: rgb(120, 120, 120);
-    text-align: center;
-    font-size: 20px;
+  color: rgb(120, 120, 120);
+  text-align: center;
+  font-size: 20px;
 }
 
 .jumbotron form {
-    width: 350px;
-    text-align: center;
+  width: 350px;
+  text-align: center;
 }
 
 /* popular */
 
-.popular { 
-    margin-bottom: 100px;
-    margin-top: 100px;
+.popular {
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 
 .popular h4 {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
-.popular a { 
-    margin-top: 120px;
+.popular a {
+  margin-top: 120px;
 }
 
-
-.popular .card { 
-    border: none;
-    background-color: black;
-    position: relative;
-    overflow: hidden;
+.popular .card {
+  border: none;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
 }
-.popular .card:hover .card-body{ 
-    right: 0;
+.popular .card:hover .card-body {
+  right: 0;
 }
 
 .popular .card-body {
-    transition: 0.5s;
-    width: 100%;
-    height: 100%;
-    background-color: #030303c3;
-    position: absolute;
-    top: 0;
-    right: -100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  background-color: #030303c3;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .popular .card-body p:nth-child(1) {
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .popular .card-body p:nth-child(2) {
-    
-    font-size: 14px;
-    
+  font-size: 14px;
 }
 
-.popular-series { 
-    margin-top: 100px;
+.popular-series {
+  margin-top: 100px;
 }
 
-.popular a { 
-    text-decoration: none;
-    color: #ffc107;
+.popular a {
+  text-decoration: none;
+  color: #ffc107;
 }
-
 
 /* popular  */
 
 /* carousel */
 
-.carousel .carousel-inner { 
-    border-radius: 0 20px 0 20px;
+.carousel .carousel-inner {
+  border-radius: 0 20px 0 20px;
 }
 
-
-
-.carousel .carousel-caption img { 
-    opacity: 1;
-    height: 250px;
+.carousel .carousel-caption img {
+  opacity: 1;
+  height: 250px;
 }
 
 .carousel .carousel-caption-box button {
-    width: 150px;
-    margin-top: 25px;
+  width: 150px;
+  margin-top: 25px;
 }
 
 .carousel .carousel-control-prev {
-    background-color: black;
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    left: 10px;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 10px;
 }
 
-.carousel .carousel-control-next  {
-    background-color: black;
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    right: 10px;
+.carousel .carousel-control-next {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  right: 10px;
 }
-
 
 /* Upcoming movies */
 
-.upcoming h4 { 
-    font-weight: bold;
-    border-left: 5px solid  #ffc107;
-    padding-left: 10px;
-    margin-bottom: 20px;
+.upcoming h4 {
+  font-weight: bold;
+  border-left: 5px solid #ffc107;
+  padding-left: 10px;
+  margin-bottom: 50px;
 }
 
- .tombol-r { 
-    margin-top: 20px;
+.tombol-r {
+  margin-top: 20px;
 }
 
 /* popular-series */
 
-.popular-series{
-    margin-top: 100px;
+.popular-series {
+  margin-top: 100px;
 }
 
-.popular-series a { 
-    text-decoration: none;
-    color: #ffc107;
+.popular-series a {
+  text-decoration: none;
+  color: #ffc107;
 }
 
-.popular .card-text { 
-    color: #ffc10786;
+.popular .card-text {
+  color: #ffc10786;
 }
-
-
 
 /* more  */
 
-
-.more h4 { 
-    font-weight: bold;
-    border-left: 3px solid yellow;
-    padding-left: 10px;
-    color: white;
+.more h4 {
+  font-weight: bold;
+  border-left: 3px solid yellow;
+  padding-left: 10px;
+  color: white;
 }
 
-.more h4 { 
-    color: grey;
+.more h4 {
+  color: grey;
 }
 
-.more button { 
-    margin: 0 10px ;
-    border-radius: 0px;
-    width: 200px;
+.more button {
+  margin: 0 10px;
+  border-radius: 0px;
+  width: 200px;
 }
 
 .more a {
-    margin: 0 10px ;
-    border-radius: 0px;
-    width: 200px
+  margin: 0 10px;
+  border-radius: 0px;
+  width: 200px;
 }
 
-.more a { 
-    text-decoration: none;
-    color: white
+.more a {
+  text-decoration: none;
+  color: white;
 }
-
-
 
 /* get-apps */
-.get-apps { 
-    gap: 40px;
-    margin-bottom: 100px;
+.get-apps {
+  gap: 40px;
+  margin-bottom: 100px;
 }
 
 .get-apps h4 {
-    color: grey;
-    font-size: 18px;
+  color: grey;
+  font-size: 18px;
 }
 
 .get-apps img {
-    width: 40px;
-    border-radius: 10px;
-    margin : 0 5px;
+  width: 40px;
+  border-radius: 10px;
+  margin: 0 5px;
 }
 
+@media (max-width: 992px) {
+  .box {
+    text-align: center;
+  }
 
-@media (max-width:992px){
+  .popular .box:nth-child(1) {
+    margin-bottom: 50px;
+  }
 
-    .box {
-        text-align: center;
-    }
-
-    .popular .box:nth-child(1){
-        margin-bottom: 50px;
-    }
-
-
-
-.carousel .carousel-caption img { 
+  .carousel .carousel-caption img {
     opacity: 1;
     height: 150px;
-}
-}
-
-
-
-@media (max-width : 767px ) { 
-    .jumbotron-box h2 {
-        font-size: 40px;
-       
-    }
-
-    .popular .popular-detil  {
-    
-    }
-    
-    .popular img {
-        width: 80%;
-        height: auto;
-    }
-
-    .carousel .carousel-caption img { 
-        opacity: 0;
-    }
-
+  }
 }
 
-@media (max-width : 576px ) { 
+@media (max-width: 767px) {
+  .jumbotron-box h2 {
+    font-size: 40px;
+  }
 
-    /* jumbotron */
-    .jumbotron-box h2 {
-        font-size: 22px;
-       
-    }
+  .popular .popular-detil {
+  }
 
-    .jumbotron-box p {
-        font-size: 16px;
-       
-    }
+  .popular img {
+    width: 80%;
+    height: auto;
+  }
 
-    .jumbotron .jumbotron-box-2  {
-       display: flex;
-       justify-content: center;
-       /* background-color: #787b7b; */
-       text-align: center;
-       margin-left: 30%;
-    }
+  .carousel .carousel-caption img {
+    opacity: 0;
+  }
+}
 
-    .jumbotron .jumbotron-box-2 .form-control {
-        height: 30px;
-        width: 200px;
-    }
+@media (max-width: 576px) {
+  /* jumbotron */
+  .jumbotron-box h2 {
+    font-size: 22px;
+  }
 
-    .jumbotron .jumbotron-box-2 .form-control {
-        height: 30px;
-        width: 200px;
-        font-size: 12px;
-    }
+  .jumbotron-box p {
+    font-size: 16px;
+  }
 
-    .jumbotron .jumbotron-box-2 button {
-        font-size: 12px;
-        padding: 5px;
-        height: 30px;
-    }
+  .jumbotron .jumbotron-box-2 {
+    display: flex;
+    justify-content: center;
+    /* background-color: #787b7b; */
+    text-align: center;
+    margin-left: 30%;
+  }
 
-    
+  .jumbotron .jumbotron-box-2 .form-control {
+    height: 30px;
+    width: 200px;
+  }
 
-    /* get-apps */
+  .jumbotron .jumbotron-box-2 .form-control {
+    height: 30px;
+    width: 200px;
+    font-size: 12px;
+  }
 
-    .get-apps { 
-        margin-bottom: 70px;
-    }
-    .get-apps h4 {
-        font-size: 14px;
-    }
-    .get-apps img {
-        width: 30px;
-    }
+  .jumbotron .jumbotron-box-2 button {
+    font-size: 12px;
+    padding: 5px;
+    height: 30px;
+  }
 
-      /* upcoming-movies */
+  /* get-apps */
 
-      .upcoming  { 
-        text-align: center;
-      }
+  .get-apps {
+    margin-bottom: 70px;
+  }
+  .get-apps h4 {
+    font-size: 14px;
+  }
+  .get-apps img {
+    width: 30px;
+  }
 
-      .swiper-slide .card { 
-        margin: auto;
-    }
+  /* upcoming-movies */
 
+  .upcoming {
+    text-align: center;
+  }
 
+  .swiper-slide .card {
+    margin: auto;
+  }
 
-    /* popular-movies */
-    
-    .box {
-        text-align: center;
-    }
-    .popular a { 
-        margin-top: 50px;
-        text-align: center;
-        margin-bottom: 30px;
-    }
+  /* popular-movies */
 
-    .popular img {
-        width: 80%;
-        height: auto;
-    }
+  .box {
+    text-align: center;
+  }
+  .popular a {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
 
-    .popular .coba {
-        display: flex;
-        justify-content: center;
-        
-         /* text-align: center; */
-    }
+  .popular img {
+    width: 80%;
+    height: auto;
+  }
 
-    .more a {
-        margin-bottom: 10px;
-    }
+  .popular .coba {
+    display: flex;
+    justify-content: center;
 
-    /* carousel */
-    .carousel .carousel-caption img { 
-        opacity: 0;
-    }
+    /* text-align: center; */
+  }
 
-    .carousel .carousel-caption h5 { 
-        font-size: 18px;
-    }
+  .more a {
+    margin-bottom: 10px;
+  }
 
-    .carousel .carousel-caption p { 
-        font-size: 12px;
-    }
-    
-    .carousel .carousel-caption-box button {
-        width: 70px;
-        
-    }
+  /* carousel */
+  .carousel .carousel-caption img {
+    opacity: 0;
+  }
 
-    .modal .modal-dialog { 
-        margin: 30px auto;
-    }
+  .carousel .carousel-caption h5 {
+    font-size: 18px;
+  }
 
+  .carousel .carousel-caption p {
+    font-size: 12px;
+  }
 
-  
+  .carousel .carousel-caption-box button {
+    width: 70px;
+  }
 
+  .modal .modal-dialog {
+    margin: 30px auto;
+  }
 }

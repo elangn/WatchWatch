@@ -1,18 +1,17 @@
 /* footer */
 
-.footer { 
-    background-color: black;
-    margin-top: 100px;
-    /* padding-top: 100px; */
+.footer {
+  background-color: black;
+  margin-top: 100px;
+  /* padding-top: 100px; */
 }
-.footer button { 
-    font-weight: bold;
-    margin-bottom: 25px;
-}
-
-.footer span  { 
-    color: white;
-    margin: 0 20px;
-    margin-bottom: 250px;
+.footer button {
+  font-weight: bold;
+  margin-bottom: 25px;
 }
 
+.footer span {
+  color: white;
+  margin: 0 20px;
+  margin-bottom: 250px;
+}

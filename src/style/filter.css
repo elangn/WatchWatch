@@ -1,25 +1,22 @@
 /* Filter */
 
-
-
-.filter p { 
-    color: grey;
+.filter p {
+  color: grey;
 }
 
 .filter a {
-    color: grey;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
+  color: grey;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
 }
 
 .filter a:hover {
-    color: #ffc107
-    
+  color: #ffc107;
 }
 
 /* breadcrumb */
 
-.breadcrumb { 
-    margin-bottom: 50px;
+.breadcrumb {
+  margin-bottom: 50px;
 }
