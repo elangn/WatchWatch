@@ -6,21 +6,38 @@ import Filter from "./Filter";
 
 const RatedMovies = () => {
   const [movies, setMovies] = useState([]);
-  // const [movies2,setMovies2] = useState([]);
+  const [Tmovies, setTmovies] = useState([]);
 
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://api.themoviedb.org/3/movie/top_rated?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1",
-    }).then(function (response) {
-      console.log(response);
-      setMovies(response.data.results);
-    });
+    for (let i = 1; i < 3; i++) {
+      const options = {
+        method: "GET",
+        url: "https://api.themoviedb.org/3/movie/top_rated",
+        params: { language: "en-US", page: i },
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24",
+        },
+      };
 
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data);
+          setMovies((prev) => [...prev, ...response.data.results]);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+  }, []);
+
+  const TrailerMovie = (TrailerId) => {
     const options = {
       method: "GET",
-      url: "https://api.themoviedb.org/3/movie/top_rated",
-      params: { language: "en-US", page: "2" },
+      url: `https://api.themoviedb.org/3/movie/${TrailerId}/videos`,
+      params: { language: "en-US" },
       headers: {
         accept: "application/json",
         Authorization:
@@ -31,13 +48,13 @@ const RatedMovies = () => {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
-        setMovies(response.data.results);
+        console.log(response);
+        setTmovies(response.data.results[0].key);
       })
       .catch(function (error) {
         console.error(error);
       });
-  }, []);
+  };
 
   return (
     <div className="body">
@@ -74,42 +91,6 @@ const RatedMovies = () => {
           <div className="row">
             {movies.map((item, i) => {
               return (
-                //  <div className="card col-6 col-md-4 col-lg-2 bg-transparent " key={i} data-bs-toggle="modal" data-bs-target={`#rated${item.id}`} >
-                //     <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-                //     <div className="card-body ">
-                //     <p className='tittle '> {item.title} </p>
-
-                //     <p className='rating'>  <i className="fa-solid fa-star"></i> {item.vote_average}</p>
-                //     </div>
-
-                //     {/* Modal */}
-                //   <div className="modal fade " id={`rated${item.id}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                //     <div className="modal-dialog w-100">
-                //       <div className="modal-content">
-                //         <div className="modal-header">
-                //           <div className="row">
-                //             <div className="col-sm-4 mb-4 text-center">
-                //                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className="card-img-top" alt="..." />
-                //             </div>
-
-                //             <div className="col-sm-8">
-                //             <h4 className='text-light justify-align-content-between'>  {item.title}</h4>
-                //             <div className='d-flex w-100  justify-content-between'>
-                //               <p className=''>  {item.release_date}</p>
-                //               <p className='text-warning'> <i className="fa-solid fa-star"></i> {item.vote_average}  </p>
-                //             </div>
-                //             <p> {item.overview} </p>
-                //             </div>
-                //           </div>
-
-                //           </div>
-
-                //       </div>
-                //     </div>
-                //   </div>
-
-                //   </div>
-
                 <div
                   className="card col-6 col-md-4 col-lg-2 bg-transparent "
                   key={i}
@@ -130,7 +111,12 @@ const RatedMovies = () => {
                       {" "}
                       Details
                     </button>
-                    <button className="btn btn-sm btn-warning ">
+                    <button
+                      className="btn btn-sm btn-warning "
+                      data-bs-toggle="modal"
+                      data-bs-target={`#Tpopular${item.id}`}
+                      onClick={() => TrailerMovie(item.id)}
+                    >
                       {" "}
                       Watch Trailer
                     </button>
@@ -178,6 +164,30 @@ const RatedMovies = () => {
                               <p> {item.overview} </p>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Modal Trailer */}
+                  <div
+                    className="modal fade "
+                    id={`Tpopular${item.id}`}
+                    tabIndex={-1}
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div className="modal-dialog ">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <iframe
+                            width="100%"
+                            src={`https://www.youtube.com/embed/${Tmovies}`}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          ></iframe>
                         </div>
                       </div>
                     </div>

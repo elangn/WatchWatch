@@ -13,7 +13,8 @@ import "swiper/css/scrollbar";
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [Tmovies, setTmovies] = useState([]);
-  const [series, setSeries] = useState([]);
+  const [rated, setRated] = useState([]);
+  const [Trated, setTrated] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
 
   useEffect(() => {
@@ -26,15 +27,28 @@ const Home = () => {
       setMovies(response.data.results.slice(0, 4));
     });
 
-    // api popular series
+    // api rated movies
 
-    axios({
-      method: "get",
-      url: "https://api.themoviedb.org/3/tv/popular?api_key=2782c32843fa2374f6ba6deaf81a8e4c&language=en-US&page=1",
-    }).then(function (response) {
-      console.log(response.data.results);
-      setSeries(response.data.results.slice(0, 4));
-    });
+    const options2 = {
+      method: "GET",
+      url: "https://api.themoviedb.org/3/movie/top_rated",
+      params: { language: "en-US", page: "1" },
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24",
+      },
+    };
+
+    axios
+      .request(options2)
+      .then(function (response) {
+        console.log(response.data.results);
+        setRated(response.data.results.slice(0, 4));
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
 
     // api upcoming movies
 
@@ -77,6 +91,31 @@ const Home = () => {
       .then(function (response) {
         console.log(response);
         setTmovies(response.data.results[0].key);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
+
+  const TrailerRated = (TrailerId) => {
+    // alert(TrailerId);
+
+    const options = {
+      method: "GET",
+      url: `https://api.themoviedb.org/3/movie/${TrailerId}/videos`,
+      params: { language: "en-US" },
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzgyYzMyODQzZmEyMzc0ZjZiYTZkZWFmODFhOGU0YyIsInN1YiI6IjY0MjkwMDJmOTYwY2RlMDA3NzEzMTA0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FwyRYPMPSQTNMA4FRJwOZ514p8i3reNUHEqIvWUIf24",
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data.results[0].key);
+        setTrated(response.data.results[0].key);
       })
       .catch(function (error) {
         console.error(error);
@@ -181,16 +220,6 @@ const Home = () => {
             </Swiper>
           </div>
 
-          {/* <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/0o9k9stwVR0"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe> */}
-
           {/* popular  movies*/}
 
           <div className="popular">
@@ -290,18 +319,18 @@ const Home = () => {
 
                     {/* Modal  Trailer Movie*/}
                     <div
-                      className="modal fade"
+                      className="modal fade "
                       id={`TMovies${item.id}`}
                       tabIndex={-1}
                       aria-labelledby="exampleModalLabel"
                       aria-hidden="true"
                     >
-                      <div className="modal-dialog">
+                      <div className="modal-dialog cok ">
                         <div className="modal-content">
                           <div className="modal-header">
                             <iframe
                               width="100%"
-                              height="315"
+                              // height="100%"
                               src={`https://www.youtube.com/embed/${Tmovies}`}
                               title="YouTube video player"
                               frameBorder="0"
@@ -430,27 +459,27 @@ const Home = () => {
             </div>
           </div>
 
-          {/* popular  Series*/}
+          {/* Rated movies  */}
           <div className="popular popular-series">
             <div className="row d-flex justify-content-center">
               <div className="col-12 col-lg-3 col-md-12">
                 <div className="box">
-                  <h4> Popular Series</h4>
+                  <h4>Rated Movies</h4>
                   <p>
-                    browse the best popular series right now only at WatchWatch{" "}
+                    browse the best rated movies right now only at WatchWatch{" "}
                   </p>
 
                   <Link
                     className="btn btn-outline-warning btn-sm"
-                    to="/popular-series"
+                    to="/rated-movies"
                   >
                     {" "}
-                    Popular Series{" "}
+                    Rated Movies{" "}
                   </Link>
                 </div>
               </div>
 
-              {series.map((item, i) => {
+              {rated.map((item, i) => {
                 return (
                   <div key={i} className="col-12 col-lg-2 col-md-3 col-sm-6 ">
                     <div className="card">
@@ -470,7 +499,12 @@ const Home = () => {
                             Details
                           </button>
 
-                          <button className="btn btn-sm btn-warning mt-2">
+                          <button
+                            className="btn btn-sm btn-warning mt-2"
+                            data-bs-toggle="modal"
+                            data-bs-target={`#Tseries${item.id}`}
+                            onClick={() => TrailerRated(item.id)}
+                          >
                             {" "}
                             Watch Trailer
                           </button>
@@ -478,7 +512,12 @@ const Home = () => {
                       </div>
                     </div>
 
-                    {/* Modal */}
+                    <p className="fw-bold text-light  text-center mt-0 mt-3 mb-5">
+                      {" "}
+                      {item.original_title}
+                    </p>
+
+                    {/* Modal rated movies*/}
                     <div
                       className="modal fade "
                       id={`series${item.id}`}
@@ -501,10 +540,10 @@ const Home = () => {
                               <div className="col-sm-8">
                                 <h4 className="text-light justify-align-content-between">
                                   {" "}
-                                  {item.name}
+                                  {item.title}
                                 </h4>
                                 <div className="d-flex w-100  justify-content-between">
-                                  <p className=""> {item.first_air_date}</p>
+                                  <p className="">{item.release_date}</p>
                                   <p className="text-warning">
                                     {" "}
                                     <i className="fa-solid fa-star"></i>{" "}
@@ -518,6 +557,32 @@ const Home = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/* Modal Trailer rated*/}
+                    <div
+                      className="modal fade "
+                      id={`Tseries${item.id}`}
+                      tabIndex={-1}
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div className="modal-dialog">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <iframe
+                              width="100%"
+                              // height="100%"
+                              src={`https://www.youtube.com/embed/${Trated}`}
+                              title="YouTube video player"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                            ></iframe>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <p className="fw-bold mt-3 text-light text-center mb-5">
                       {" "}
                       {item.name}
